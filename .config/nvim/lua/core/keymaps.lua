@@ -14,6 +14,9 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- clear highlights
 vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 
+-- select all
+vim.keymap.set("n", "<A-a>", "<Cmd>normal! gg_vG$<CR>", opts)
+
 -- save file
 vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
 
