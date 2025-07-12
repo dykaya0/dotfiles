@@ -1,0 +1,153 @@
+@import url("colors.css");
+
+* {  
+  font-family:
+    "Cantarell",
+    "Noto Sans CJK JP",
+    "JetBrainsMono Nerd Font Mono",
+    "Nerd Font",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  }
+
+#waybar {
+/*#background-color: #11151a;*/
+background: transparent;
+color: @fg;
+border-radius: 50px 50px 50px 50px;
+background-color: rgba(0, 0, 0, 0.3);
+}
+
+tooltip {
+    background-color: @bg-dark;
+    border: 1px solid @accent-blue;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @fg;
+}
+
+button {
+border: none;
+border-radius: 0;
+padding: 0 5px;
+transition: all 0.2s ease;
+}
+
+#workspaces {
+background-color: @bg-dark;
+border-radius: 10px;
+margin: 5px;
+padding: 2px;
+}
+
+
+#workspaces button {
+background-color: transparent;
+color: @fg-alt;
+border-radius: 6px;
+margin: 0 2px;
+padding: 0 8px;
+transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+color: @accent-purple;
+background-color: rgba(187, 154, 247, 0.1);
+}
+
+#workspaces button.active {
+color: @accent-blue;
+background-color: rgba(122, 162, 247, 0.1);
+font-weight: bold;
+}
+
+#workspaces button.urgent {
+background-color: @red;
+color: @bg-black;
+}
+
+#custom-separator {
+margin-right: 10px;
+margin-left: 10px;
+}
+
+
+#window {
+background-color: @bg-dark;
+color: @accent-green;
+padding: 0 12px;
+border-radius: 10px;
+margin: 5px;
+}
+
+
+#network.icon {
+background-color: @accent-purple;
+color: @bg-black;
+padding: 0 12px;
+border-radius: 10px 0 0 10px;
+margin: 5px 0 5px 5px;
+}
+
+#network.text {
+background-color: @bg-dark;
+color: @accent-purple;
+padding: 0 12px;
+border-radius: 0 10px 10px 0;
+margin: 5px 5px 5px 0;
+}
+
+
+#pulseaudio.icon {
+background-color: @accent-blue;
+color: @bg-black;
+padding: 0px 5px 0px 6px;
+border-radius: 10px 0 0 10px;
+margin: 5px 0px 5px 0px;
+font-size: 30px;
+}
+
+#pulseaudio.text {
+background-color: @bg-dark;
+color: @accent-blue;
+padding: 0 12px;
+border-radius: 0 10px 10px 0;
+margin: 5px 5px 5px 0;
+}
+
+#clock.icon {
+background-color: @red;
+color: @bg-black;
+padding: 0px 5px 0px 6px;
+border-radius: 10px 0 0 10px;
+margin: 5px 0px 5px 0px;
+font-size: 20px;
+}
+
+#clock.text {
+background-color: @bg-dark;
+color: @red;
+padding: 0 12px;
+border-radius: 0 10px 10px 0;
+margin: 5px 5px 5px 0;
+}
+
+
+@keyframes blink {
+    to {
+        background-color: @red;
+        color: @bg-black;
+    }
+}
+
+.modules-left > widget\:first-child > #workspaces {
+margin-left: 0;
+}
+
+.modules-right > widget\:last-child > #workspaces {
+margin-right: 0;
+}
+

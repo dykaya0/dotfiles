@@ -1,5 +1,12 @@
 -- Keymaps for better default experience
 
+-- set :w and :q non-capital sensitive
+vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
+vim.api.nvim_create_user_command("Q", "q", { nargs = 0 })
+vim.api.nvim_create_user_command("Wq", "wq", { nargs = 0 })
+vim.api.nvim_create_user_command("WQ", "wq", { nargs = 0 })
+vim.api.nvim_create_user_command("Qw", "wq", { nargs = 0 })
+
 -- Set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -9,7 +16,8 @@ local opts = { noremap = true, silent = true }
 
 -- Select line
 vim.keymap.set("n", "vv", "_v$", opts)
-vim.keymap.set("n", "ggv", "gg_vG$", opts)
+-- Select all file
+vim.keymap.set("n", "vga", "gg_vG$", opts)
 
 -- Allow moving the cursor through wrapped lines with j, k
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

@@ -4,11 +4,22 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export PATH=$PATH:$HOME/go/bin
+# export XDG_CURRENT_DESKTOP=Hyprland
+# export XDG_SESSION_TYPE=wayland
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+fpath+=($HOME/.zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure
+
+#ZSH_THEME="robbyrussell"
+
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -63,7 +74,7 @@ ZSH_THEME="robbyrussell"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=/usr/share/zsh/
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -75,14 +86,15 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+bindkey '^Y' autosuggest-accept
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
+# if []; then
 #   export EDITOR='vim'
 # else
 #   export EDITOR='nvim'
@@ -102,3 +114,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+eval "$(zoxide init --cmd cd zsh)"
+###ALIASES
+alias nivm="nvim"
+alias nimv="nvim"
+alias cat="bat"
+alias lsa="ls -a1"
+alias ls="ls -1"
+alias claer="clear"
