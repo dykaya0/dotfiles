@@ -119,6 +119,6 @@ else
       echo "$service is already enabled"
     fi
   done
-  
+fi 
   
 echo "Setup complete! You may want to reboot your system."
