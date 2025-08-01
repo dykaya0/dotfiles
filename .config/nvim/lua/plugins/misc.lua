@@ -62,4 +62,16 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
+	{
+		"echasnovski/mini.nvim",
+		version = false,
+	},
+	{
+		"oysandvik94/curl.nvim",
+		cmd = { "CurlOpen" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = true,
+	},
 }

@@ -3,7 +3,6 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 export PATH=$PATH:$HOME/go/bin
 # export XDG_CURRENT_DESKTOP=Hyprland
 # export XDG_SESSION_TYPE=wayland
@@ -21,6 +20,9 @@ prompt pure
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+#export PATH=$PATH:$HOME/.local/scripts/tmux-sessionizer
+# export PATH="$HOME/.local/scripts/tmux-sessionizer:$PATH"
+#bindkey -s ^l "tmux-sessionizer\n"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
