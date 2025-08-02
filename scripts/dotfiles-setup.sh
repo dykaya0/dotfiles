@@ -1,8 +1,5 @@
 #!/bin/bash
-
-ORIGINAL_DIR=$(pwd)
-REPO_NAME="dotfiles"
-
+DOTFILES_DIR="dotfiles"
 
 is_stow_installed() {
   pacman -Qi "stow" &> /dev/null
@@ -16,8 +13,8 @@ fi
 cd ~
 
 if [ $? -eq 0 ]; then
-  cd "$REPO_NAME"
-  stow .
+  cd "$DOTFILES_DIR"
+  stow --adopt .
 else
   echo "Failed to stow the repo"
   exit 1

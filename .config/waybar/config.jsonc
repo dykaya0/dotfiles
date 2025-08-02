@@ -6,7 +6,6 @@
   "$HOME/.config/waybar/ModulesGroups",
   ],
 "layer": "bottom",
-//"mode": "dock",
 "exclusive": true,
 "passthrough": false,
 "position": "top",
@@ -18,20 +17,23 @@
 "margin-right": 8,
 
 "modules-left": [
-	"clock",
-        "custom/separator#dot-blank",	
+	"clock#5",
         "custom/separator#blank",	
         "hyprland/window",
 	],
 
 "modules-center": [
         "hyprland/workspaces#roman",
+        "custom/separator#dot-line",  
+	"group/notify",	
 	],
 
 "modules-right": [
         "custom/separator#blank",  
 	"tray",
-	"group/notify",	
+	"custom/separator#blank",  
+	//"group/connections",
+	"network",
 	"custom/separator#blank",  
 	"pulseaudio#1",
 	"custom/separator#blank",
