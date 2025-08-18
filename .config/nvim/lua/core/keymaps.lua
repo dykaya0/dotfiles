@@ -1,6 +1,4 @@
--- Keymaps for better default experience
-
--- set :w and :q non-capital sensitive
+-- set :w and :q capital insensitive
 vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 vim.api.nvim_create_user_command("Q", "q", { nargs = 0 })
 vim.api.nvim_create_user_command("Wq", "wq", { nargs = 0 })
@@ -26,8 +24,11 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- clear highlights
 vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 
--- select all
-vim.keymap.set("n", "<A-a>", "<Cmd>normal! gg_vG$<CR>", opts)
+-- Toggle Treesitter context
+vim.keymap.set("n", "<leader>tc", "<cmd>TSContext toggle<CR>", { desc = "Toggle Treesitter Context" })
+
+-- Restart Lsp
+vim.keymap.set("n", "<leader>rl", "<cmd>LspRestart<CR>", { desc = "Restart Lsp" })
 
 -- save file
 vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
@@ -89,13 +90,23 @@ vim.keymap.set("n", "<A-j>", "vv <cmd> m .+1<CR>==", opts)
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 vim.keymap.set("n", "<A-k>", "vv <cmd> m .-2<CR>==", opts)
 
--- Paste from 0 register
+-- Paste from 0 register (only yank)
 vim.keymap.set("v", "p", '"0p', opts)
 vim.keymap.set("n", "p", '"0p', opts)
 
--- Paste from unnamed register
+-- Paste from unnamed register (yank+delete,everything)
 vim.keymap.set("v", "<leader>p", '""p', opts)
 vim.keymap.set("n", "<leader>p", '""p', opts)
+
+-- Paste from + register (system clipboard)
+vim.keymap.set("v", "<A-p>", '"+p', opts)
+vim.keymap.set("n", "<A-p>", '"+p', opts)
+
+-- Delete selection into the blackhole register
+vim.keymap.set("v", "<leader>d", '"_d', opts)
+
+-- Delete character into the blackhole register
+vim.keymap.set("v", "<leader>x", '"_x', opts)
 
 -- Explicitly yank to system clipboard (highlighted and entire row)
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])

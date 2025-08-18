@@ -32,6 +32,8 @@ require("lazy").setup({
 	require("plugins.vim-tmux-navigator"),
 	require("plugins.snacks"),
 	require("plugins.conform"),
+	require("plugins.yazi-nvim"),
+	require("plugins.opencode-nvim"),
 })
 
 local group = vim.api.nvim_create_augroup("OoO", {})
