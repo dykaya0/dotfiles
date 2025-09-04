@@ -18,34 +18,34 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       1000px;
+    width:                       500px;
     x-offset:                    0px;
     y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
-    border:			 2px solid;
+    border:			 1px solid;
     border-color:		 @secondary-container;
-    border-radius:               15px;
+    border-radius:               10px;
     cursor:                      "default";
     background-color:            @on-primary-fixed;
 }
 
 mainbox {
     enabled:                     true;
-    spacing:                     0px;
+    spacing:                     10px;
     background-color:            transparent;
-    orientation:                 horizontal;
-    children:                    [ "imagebox", "listbox" ];
-}
-
-imagebox {
-    padding:                     20px;
-    background-color:            transparent;
-    background-image:            url("~/wallpapers/rofi_bg.jpg", height);
     orientation:                 vertical;
-    children:                    [ "inputbar", "dummy", "mode-switcher" ];
+    children:                    [ "inputbar","listbox" ];
 }
+//
+// imagebox {
+//     padding:                     20px;
+//     background-color:            transparent;
+//     background-image:            url("~/wallpapers/rofi_bg.jpg", height);
+//     orientation:                 vertical;
+//     children:                    [ "inputbar", "dummy", "mode-switcher" ];
+// }
 
 listbox {
     spacing:                     20px;
@@ -61,9 +61,9 @@ dummy {
 
 inputbar {
     enabled:                     true;
-    spacing:                     10px;
-    padding:                     15px;
-    border-radius:               10px;
+    spacing:                     1px;
+    padding:                     10px;
+    border-radius:               5px;
     background-color:		 @on-primary;
     text-color:			 @on-surface;
     children:                    [ "textbox-prompt-colon", "entry" ];
@@ -80,16 +80,16 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search";
+    placeholder:                 "";
     placeholder-color:           inherit;
 }
-
-mode-switcher{
-    enabled:                     true;
-    spacing:                     20px;
-    background-color:            transparent;
-    text-color:                  @primary-fixed;
-}
+//
+// mode-switcher{
+//     enabled:                     true;
+//     spacing:                     20px;
+//     background-color:            transparent;
+//     text-color:                  @primary-fixed;
+// }
 button {
     padding:                     15px;
     border-radius:               10px;
@@ -105,7 +105,7 @@ button selected {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       8;
+    lines:                       5;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -114,7 +114,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     10px;
+    spacing:                     8px;
     background-color:            transparent;
     text-color:                  @on-surface;
     cursor:                      "default";

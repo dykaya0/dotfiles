@@ -4,6 +4,8 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:$HOME/go/bin
+
+export EDITOR=nvim
 # export XDG_CURRENT_DESKTOP=Hyprland
 # export XDG_SESSION_TYPE=wayland
 # Set name of the theme to load --- if set to "random", it will
@@ -20,6 +22,14 @@ prompt pure
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+#Change the current working directory when exiting Yazi.
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 #export PATH=$PATH:$HOME/.local/scripts/tmux-sessionizer
 # export PATH="$HOME/.local/scripts/tmux-sessionizer:$PATH"
 #bindkey -s ^l "tmux-sessionizer\n"
@@ -124,3 +134,11 @@ alias cat="bat"
 alias lsa="ls -a1"
 alias ls="ls -1"
 alias claer="clear"
+
+# pnpm
+export PNPM_HOME="/home/dogukan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

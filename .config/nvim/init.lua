@@ -18,22 +18,9 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require("lazy").setup({
-	require("plugins.nvim-tree"),
-	require("plugins.colorscheme"),
-	require("plugins.lualine"),
-	require("plugins.treesitter"),
-	require("plugins.telescope"),
-	require("plugins.lsp"),
-	require("plugins.blink-cmp"),
-	require("plugins.gitsigns"),
-	require("plugins.misc"),
-	require("plugins.comment"),
-	require("plugins.harpoon"),
-	require("plugins.vim-tmux-navigator"),
-	require("plugins.snacks"),
-	require("plugins.conform"),
-	require("plugins.yazi-nvim"),
-	require("plugins.opencode-nvim"),
+	spec = {
+		{ import = "plugins" },
+	},
 })
 
 local group = vim.api.nvim_create_augroup("OoO", {})

@@ -12,6 +12,9 @@ vim.g.maplocalleader = " "
 -- For conciseness
 local opts = { noremap = true, silent = true }
 
+-- Find start of the current word
+vim.keymap.set("n", "z", "F ", opts)
+
 -- Select line
 vim.keymap.set("n", "vv", "_v$", opts)
 -- Select all file
@@ -54,19 +57,17 @@ vim.keymap.set("n", "<Down>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<Left>", ":vertical resize +2<CR>", opts)
 vim.keymap.set("n", "<Right>", ":vertical resize -2<CR>", opts)
 
--- Buffers
-vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts) -- close buffer
-vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
+-- -- Buffers
+-- vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
+-- vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
+-- vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts) -- close buffer
+-- vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
 
 -- Increment/decrement numbers
 vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
 vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
 
 -- Window management
-vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
-vim.keymap.set("n", "<leader>h", "<C-w>s", opts) -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>xs", ":close<CR>", opts) -- close current split window
 
@@ -75,7 +76,7 @@ vim.keymap.set("n", "<leader>k", ":wincmd k<CR>", opts)
 vim.keymap.set("n", "<leader>j", ":wincmd j<CR>", opts)
 vim.keymap.set("n", "<leader>h", ":wincmd h<CR>", opts)
 vim.keymap.set("n", "<leader>l", ":wincmd l<CR>", opts)
---
+
 -- Toggle line wrapping
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
 
