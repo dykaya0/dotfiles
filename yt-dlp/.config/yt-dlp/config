@@ -1,0 +1,22 @@
+# Save in ~/Videos
+-o ~/videos/youtube/%(title)s.%(ext)s
+
+--audio-multistreams 
+
+# -f bestvideo+audio_id1+audio_id2+etc
+
+# Merge into MKV to support multiple subtitles
+--merge-output-format mkv
+
+# Download German and English subtitles
+--sub-langs all
+
+# Embed subtitles into the video file
+--embed-subs
+
+# Always embed metadata
+--embed-metadata
+
+# Prefer the best subtitle format available
+--sub-format best
+

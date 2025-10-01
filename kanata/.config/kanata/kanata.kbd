@@ -1,0 +1,35 @@
+(defcfg
+     process-unmapped-keys yes
+)
+
+(defsrc 
+      a
+      u
+      o
+      s
+      g
+)
+
+(defvar
+      tap-time 300
+      hold-time 250
+)
+
+(defalias
+    aum (tap-hold $tap-time $tap-time a (fork (unicode ä) (unicode Ä) (lsft rsft)))
+    uum (tap-hold $tap-time $tap-time u (fork (unicode ü) (unicode Ü) (lsft rsft))) 
+    oum (tap-hold $tap-time $tap-time o (fork (unicode ö) (unicode Ö) (lsft rsft))) 
+    eszett (tap-hold $tap-time $tap-time s (fork (unicode ß) (unicode ẞ) (lsft rsft)))
+    softg (tap-hold $tap-time $tap-time g (fork (unicode ğ) (unicode Ğ) (lsft rsft)))
+)
+
+
+
+(deflayer base
+  @aum
+  @uum
+  @oum
+  @eszett
+  @softg
+)
+
