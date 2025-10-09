@@ -9,6 +9,7 @@ return {
 		require("oil").setup({
 			default_file_explorer = true,
 			delete_to_trash = true,
+
 			keymaps = {
 				["<CR>"] = "actions.select",
 				["<BS>"] = { "actions.parent", mode = "n" },

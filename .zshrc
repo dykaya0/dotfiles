@@ -26,6 +26,8 @@ prompt pure
 source <(fzf --zsh)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
+eval "$(zoxide init zsh)"
+
 _fzf_compgen_path() {
   fd --hidden --follow \
     --exclude "/.cache" \
@@ -59,9 +61,10 @@ function y() {
 
 
 # Alias
+alias cd="z"
 alias cat="bat"
-alias lsa="ls -a1"
-alias ls="ls -1"
+alias lsa="eza -a1"
+alias ls="eza -1"
 
 alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'
 alias fzd='fd --type d --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'
