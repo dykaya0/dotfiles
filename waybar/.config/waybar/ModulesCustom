@@ -1,7 +1,7 @@
 {
 
 "custom/xkblayout": {
-    "format": "{}",
+    "format": " {}",
     "exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.name == \"ckb1:-corsair-k60-rgb-pro-low-profile-mechanical-gaming-keyboard-vkb\") | .active_keymap'",
     "interval": 1
 },
@@ -13,12 +13,39 @@
 	"tooltip": true,
 	"tooltip-format":"Logout Menu",
 },
+    "group/misc": {
+        "orientation": "inherit",
+            "drawer": {
+                "transition-duration": 200,
+                "transition-left-to-right": true,
+                "click-to-reveal": true,
+            },
+        "modules": [
+            "custom/drawerhead",
+            "custom/xkblayout",
+        ]
+    },
+
+    "custom/tomato": {
+        "format": " | {}",
+        "exec": "tomato -t",
+        "interval": 1, 
+        "tooltip": false,
+        "max-length": 50 
+    },
+
+
+"custom/drawerhead": {
+	"format": "  ",
+	"interval": "once",
+	"tooltip": true
+},
 
 // Separators
 "custom/separator#dot": {
 	"format": "",
 	"interval": "once",
-	"tooltip": false
+	"tooltip": true
 },
 "custom/separator#dot-line": {
 	"format": "",
@@ -26,7 +53,7 @@
 	"tooltip": false
 },
 "custom/separator#line": {
-	"format": "|",
+	"format": " | ",
 	"interval": "once",
 	"tooltip": false
 },

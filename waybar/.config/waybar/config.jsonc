@@ -3,7 +3,7 @@
   "$HOME/.config/waybar/Modules",
   "$HOME/.config/waybar/ModulesWorkspaces",
   "$HOME/.config/waybar/ModulesCustom",
-  "$HOME/.config/waybar/ModulesGroups",
+  "$HOME/.config/waybar/ModulesGroups"
   ],
 "layer": "bottom",
 "exclusive": true,
@@ -17,9 +17,10 @@
 "margin-right": 8,
 
 "modules-left": [
-	"clock#5",
+	"clock",
+	"custom/tomato",
 	"custom/separator#blank_3",
-	"custom/xkblayout"
+	"group/misc"
 	],
 
 "modules-center": [

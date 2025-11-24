@@ -1,4 +1,5 @@
 
+
 @import "colors.css";
 
 * {
@@ -41,29 +42,20 @@
 #battery,
 #network,
 #bluetooth,
-#pulseaudio,
-#custom-omarchy,
-#custom-update {
+#pulseaudio {
   min-width: 12px;
   margin: 0 7.5px;
 }
 
-#custom-expand-icon {
-  margin-right: 7px;
-}
 
-tooltip {
+#tooltip {
   padding: 2px;
 }
 
-#custom-update {
-  font-size: 10px;
-}
 
 #clock {
   margin-left: 8.75px;
 }
-
 
 .hidden {
   opacity: 0;

@@ -23,6 +23,7 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # Source
+source <(COMPLETE=zsh tms) 
 source <(fzf --zsh)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
@@ -61,6 +62,7 @@ function y() {
 
 
 # Alias
+alias n="nvim"
 alias cd="z"
 alias cat="bat"
 alias lsa="eza -a1"

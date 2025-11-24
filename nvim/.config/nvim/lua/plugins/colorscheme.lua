@@ -5,7 +5,7 @@ return {
 		---@diagnostic disable-next-line: missing-fields
 		require("kanagawa").setup({
 			styles = {
-				comments = { italic = false },
+				comments = { italic = true },
 			},
 		})
 		vim.o.termguicolors = true

@@ -1,12 +1,6 @@
-//* ---- 💫 https://github.com/JaKooLit 💫 ---- *//
-/* Waybar Modules */
-
-/* NOTE: hyprland-workspaces, Custom Modules, Custom Vertical & Groups on a separate files */
-
 {
 
-
-"clock#5": {
+"clock": {
     "format": "{:%H:%M | %d %B}",// 24H
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
 	"calendar": {
