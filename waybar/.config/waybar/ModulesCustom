@@ -1,15 +1,17 @@
 {
 
 "custom/xkblayout": {
-    "format": " {}",
-    "exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.name == \"ckb1:-corsair-k60-rgb-pro-low-profile-mechanical-gaming-keyboard-vkb\") | .active_keymap'",
+    "exec": "~/.config/waybar/scripts/keyboardlayout.sh",
+    "return-type": "json" ,
+    "tooltip": true,
+    "tooltip-format": "{text}",
+    "format": "󰌌",
     "interval": 1
 },
 
 "custom/power": {
 	"format": "⏻",
 	"on-click": "$HOME/.config/hypr/scripts/Wlogout.sh",
-	"on-click-right": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
 	"tooltip": true,
 	"tooltip-format":"Logout Menu",
 },

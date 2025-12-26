@@ -18,12 +18,27 @@ settings:
   bindings.commands:
     global:
       normal:
-        J: tab-prev
-        K: tab-next
         pf: spawn --userscript qute-bitwarden
         tT: config-cycle tabs.position top left
         td: config-cycle colors.webpage.darkmode.enabled true false
+        yo: hint links spawn mpv {hint-url} -r
+        zg: cmd-set-text -s :spawn --userscript tab-manager/tab-manager.py /home/dogukan/.local/share/qutebrowser/sessions
         '|': grep tab-move
+  bindings.key_mappings:
+    global:
+      <Ctrl-6>: <Ctrl-^>
+      <Ctrl-Enter>: <Ctrl-Return>
+      <Ctrl-I>: <Tab>
+      <Ctrl-J>: <Return>
+      <Ctrl-M>: <Return>
+      <Ctrl-[>: <Escape>
+      <Enter>: <Return>
+      <Shift-Enter>: <Return>
+      <Shift-Return>: <Return>
+  colors.statusbar.command.private.fg:
+    global: '#e0e0e0'
+  colors.statusbar.insert.bg:
+    global: '#A1BC98'
   colors.webpage.darkmode.enabled:
     global: true
   colors.webpage.darkmode.policy.images:
@@ -47,6 +62,8 @@ settings:
     - https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt
     - https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt
     - https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt
+  content.blocking.enabled:
+    global: true
   content.blocking.method:
     global: auto
   content.headers.user_agent:
@@ -55,7 +72,16 @@ settings:
   content.javascript.clipboard:
     https://chatgpt.com: access-paste
     https://claude.ai: access-paste
+    https://colab.research.google.com: access-paste
+    https://devdocs.io: access-paste
+    https://excalidraw.com: access-paste
+    https://gemini.google.com: access-paste
     https://github.com: access-paste
+    https://grafana.com: access-paste
+    https://hub.docker.com: access-paste
+    https://jwtgenerator.com: access-paste
+    https://learn.microsoft.com: access-paste
+    https://limeplay.winoffrg.dev: access-paste
     https://www.apollographql.com: access-paste
   content.notifications.enabled:
     https://www.youtube.com: false
@@ -71,6 +97,8 @@ settings:
     global: monospace
   tabs.last_close:
     global: startpage
+  tabs.new_position.unrelated:
+    global: next
   tabs.padding:
     global:
       bottom: 5
@@ -78,13 +106,14 @@ settings:
       right: 9
       top: 5
   tabs.position:
-    global: top
+    global: left
   tabs.show:
     global: always
   tabs.width:
     global: 15%
   url.searchengines:
     global:
+      '!devdocs': https://www.devdocs.io/#q={}
       '!g': https://www.google.com/search?q={}
       '!yt': https://www.youtube.com/results?search_query={}
       DEFAULT: https://duckduckgo.com/?q={}

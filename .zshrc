@@ -23,7 +23,6 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # Source
-source <(COMPLETE=zsh tms) 
 source <(fzf --zsh)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
@@ -32,6 +31,8 @@ eval "$(zoxide init zsh)"
 _fzf_compgen_path() {
   fd --hidden --follow \
     --exclude "/.cache" \
+    --exclude "~/.steam" \
+    --exclude "go" \
     --exclude "node_modules" \
     . "$1"
 }
@@ -39,6 +40,8 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow \
     --exclude ".git" \
+    --exclude "~/.steam" \
+    --exclude "go" \
     --exclude ".cache" \
     --exclude "node_modules" \
     . "$1"
@@ -59,6 +62,23 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+function sesh-sessions() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+    zle reset-prompt > /dev/null 2>&1 || true
+    [[ -z "$session" ]] && return
+    sesh connect $session
+  }
+}
+
+zle     -N             sesh-sessions
+bindkey -M emacs '\es' sesh-sessions
+bindkey -M vicmd '\es' sesh-sessions
+bindkey -M viins '\es' sesh-sessions
+
 
 
 # Alias
@@ -67,7 +87,12 @@ alias cd="z"
 alias cat="bat"
 alias lsa="eza -a1"
 alias ls="eza -1"
+alias ytdlp="yt-dlp"
 
-alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'
+alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" --exclude "go" . | fzf'
 alias fzd='fd --type d --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'
 
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit

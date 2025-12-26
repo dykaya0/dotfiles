@@ -6,6 +6,7 @@
   "$HOME/.config/waybar/ModulesGroups"
   ],
 "layer": "bottom",
+"output": ["DP-2"],
 "exclusive": true,
 "passthrough": false,
 "position": "top",
@@ -19,8 +20,7 @@
 "modules-left": [
 	"clock",
 	"custom/tomato",
-	"custom/separator#blank_3",
-	"group/misc"
+	"custom/separator#blank_3"
 	],
 
 "modules-center": [
@@ -32,6 +32,7 @@
 	"tray",
 	"custom/separator#blank",  
 	"network",
+	"custom/xkblayout",
 	"custom/separator#blank",  
 	"pulseaudio",
 	"custom/separator#blank",

@@ -33,6 +33,9 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 -- Toggle Treesitter context
 vim.keymap.set("n", "<leader>tc", "<cmd>TSContext toggle<CR>", { desc = "Toggle Treesitter Context" })
 
+-- Toggle Treesitter context
+vim.keymap.set("n", "<leader>t", "<cmd>FloatermToggle<CR>", { desc = "Toggle Treesitter Context" })
+
 -- Restart Lsp
 vim.keymap.set("n", "<leader>rl", "<cmd>LspRestart<CR>", { desc = "Restart Lsp" })
 
@@ -60,13 +63,12 @@ vim.keymap.set("n", "<Right>", ":vertical resize -2<CR>", opts)
 -- vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts) -- close buffer
 -- vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
 
+-- Windows
+vim.keymap.set("n", "<C-w>x", ":close<CR>", opts) -- close current split window
+
 -- Increment/decrement numbers
 vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
 vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
-
--- Window management
-vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>xs", ":close<CR>", opts) -- close current split window
 
 -- Navigate between splits
 vim.keymap.set("n", "<leader>k", ":wincmd k<CR>", opts)

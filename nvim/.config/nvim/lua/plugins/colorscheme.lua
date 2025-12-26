@@ -1,14 +1,7 @@
 return {
-	"rebelot/kanagawa.nvim",
-	priority = 1000,
+	"rose-pine/neovim",
+	name = "rose-pine",
 	config = function()
-		---@diagnostic disable-next-line: missing-fields
-		require("kanagawa").setup({
-			styles = {
-				comments = { italic = true },
-			},
-		})
-		vim.o.termguicolors = true
-		vim.cmd.colorscheme("kanagawa-dragon")
+		vim.cmd("colorscheme rose-pine")
 	end,
 }

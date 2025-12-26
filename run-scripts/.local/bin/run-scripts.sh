@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Directory of shell scripts
-SCRIPT_DIR="$HOME/.config/scripts"
+# Directory of shell menu scripts
+SCRIPT_DIR="$HOME/.config/scripts/menu/"
 
 # Make sure the directory exists
 if [ ! -d "$SCRIPT_DIR" ]; then
@@ -10,7 +10,7 @@ if [ ! -d "$SCRIPT_DIR" ]; then
 fi
 
 # List .sh files (both symlinks and regular files), sorted
-SCRIPTS=$(find "$HOME/.config/scripts/" -maxdepth 1 \( -type f -o -type l \) -name "*.sh")
+SCRIPTS=$(find $SCRIPT_DIR -maxdepth 1 \( -type f -o -type l \) -name "*.sh")
 
 # Check if there are any scripts
 if [ -z "$SCRIPTS" ]; then

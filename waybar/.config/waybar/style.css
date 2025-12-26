@@ -44,18 +44,30 @@
 #bluetooth,
 #pulseaudio {
   min-width: 12px;
-  margin: 0 7.5px;
+  margin: 0 8px;
 }
 
+#custom-xkblayout {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+#custom-xkblayout.english {
+  color: @foreground;
+}
+
+#custom-xkblayout.turkish {
+  color: @red;
+}
+
+#custom-xkblayout.german {
+  color: @yellow;
+}
 
 #tooltip {
   padding: 2px;
 }
 
-
-#clock {
-  margin-left: 8.75px;
-}
 
 .hidden {
   opacity: 0;

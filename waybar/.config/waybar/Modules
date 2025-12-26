@@ -53,7 +53,7 @@
       "default": ["", "", ""]
     },
   "on-click": "pavucontrol -t 3",
-  "on-click-middle": "$HOME/.config/scripts/audio-switcher.sh",
+  "on-click-middle": "$HOME/.config/scripts/menu/audio-switcher.sh",
   "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
   "tooltip": true,
   "tooltip-format": "{icon} {desc} | {volume}%",
