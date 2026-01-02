@@ -1,26 +1,26 @@
 #!/usr/bin/env bash
 
-SelectRegion() {
+Region() {
 sleep 0.2
 hyprshot --freeze -m region
 }
 
-WholeMonitor() {
+Monitor() {
 sleep 0.2
 hyprshot --freeze -m output
 }
 
-WholeWindow() {
+Window() {
 sleep 0.2
 hyprshot --freeze -m window
 }
 
-ClipboardSelectRegion() {
+Region_clipboard() {
 sleep 0.2
 hyprshot --clipboard-only --freeze -m region
 }
 
-ClipboardAndPreviewSelectRegion() {
+Region_preview() {
 sleep 0.2
 
 TMP_FILENAME=$(date +%Y-%m-%dT%H-%M-%S)
@@ -29,7 +29,7 @@ hyprshot --freeze -o "$TMP_DIR" -f "$TMP_FILENAME" -m region
 nsxiv --name "TMP_SS_PREVIEW" $TMP_DIR/$TMP_FILENAME
 }
 
-ClipboardExtractText() {
+Region_extracttext() {
 
 die() {
   notify-send "$1"
@@ -54,15 +54,15 @@ exit
 }
 
 takeScreenshot() { 
-    choice=$(printf "SelectRegion\\nWholeMonitor\\nWholeWindow\\nClipboardSelectRegion\\nClipboardAndPreviewSelectRegion\\nClipboardExtractText" \
+    choice=$(printf "Region\\nMonitor\\nWindow\\nRegion_clipboard\\nRegion_preview\\nRegion_extracttext" \
         | rofi -dmenu -c -l 6 -i -p "Choose output: ")
     case "$choice" in 
-    SelectRegion)    SelectRegion;;
-    WholeMonitor)    WholeMonitor;;
-    WholeWindow)    WholeWindow;;
-    ClipboardSelectRegion)    ClipboardSelectRegion;;
-    ClipboardAndPreviewSelectRegion)    ClipboardAndPreviewSelectRegion;;
-    ClipboardExtractText)    ClipboardExtractText;;
+    Region)    Region;;
+    Monitor)    Monitor;;
+    Window)    Window;;
+    Region_clipboard)    Region_clipboard;;
+    Region_preview)    Region_preview;;
+    Region_extracttext)    Region_extracttext;;
     esac
 
 }

@@ -1,9 +1,10 @@
--- set :w and :q capital insensitive
+-- set common commands case insensitive
 vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 vim.api.nvim_create_user_command("Q", "q", { nargs = 0 })
-vim.api.nvim_create_user_command("Wq", "wq", { nargs = 0 })
 vim.api.nvim_create_user_command("WQ", "wq", { nargs = 0 })
-vim.api.nvim_create_user_command("Qw", "wq", { nargs = 0 })
+vim.api.nvim_create_user_command("Wq", "wq", { nargs = 0 })
+vim.api.nvim_create_user_command("WA", "wa", { nargs = 0 })
+vim.api.nvim_create_user_command("Wa", "wa", { nargs = 0 })
 
 -- Set leader key
 vim.g.mapleader = " "
@@ -32,9 +33,6 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 
 -- Toggle Treesitter context
 vim.keymap.set("n", "<leader>tc", "<cmd>TSContext toggle<CR>", { desc = "Toggle Treesitter Context" })
-
--- Toggle Treesitter context
-vim.keymap.set("n", "<leader>t", "<cmd>FloatermToggle<CR>", { desc = "Toggle Treesitter Context" })
 
 -- Restart Lsp
 vim.keymap.set("n", "<leader>rl", "<cmd>LspRestart<CR>", { desc = "Restart Lsp" })
@@ -90,22 +88,17 @@ vim.keymap.set("n", "<A-j>", "vv <cmd> m .+1<CR>==", opts)
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 vim.keymap.set("n", "<A-k>", "vv <cmd> m .-2<CR>==", opts)
 
--- Paste from 0 register (only yank)
-vim.keymap.set("v", "p", '"0p', opts)
-vim.keymap.set("n", "p", '"0p', opts)
-
--- Paste from unnamed register (yank+delete)
-vim.keymap.set("v", "<leader>p", '""p', opts)
-vim.keymap.set("n", "<leader>p", '""p', opts)
+-- Paste from unnamed register (only yank)
+vim.keymap.set({ "n", "v" }, "<leader>p", '"0p', opts)
 
 -- Paste from + register (system clipboard)
 vim.keymap.set("v", "<A-p>", '"+p', opts)
 vim.keymap.set("n", "<A-p>", '"+p', opts)
 
 -- Delete character into the blackhole register
-vim.keymap.set("n", "x", '"_x', opts)
+vim.keymap.set({ "n", "v" }, "x", '"_x', opts)
 
--- Explicitly yank to system clipboard
+-- Yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 
 -- Toggle diagnostics

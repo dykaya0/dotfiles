@@ -1,0 +1,18 @@
+youtube :: https://youtube.com
+reddit :: https://reddit.com
+github :: https://github.com
+whatsapp :: https://web.whatsapp.com
+instagram :: https://instagram.com
+youtube music :: https://music.youtube.com
+twitter :: https://x.com
+moodle :: https://online.yasar.edu.tr
+getir :: https://getir.com
+chatgpt :: https://chatgpt.com
+gemini :: https://gemini.google.com
+grok :: https://grok.com
+draw.io :: https://app.diagrams.net
+jellyfin :: https://jellyfin.shinjigofret.com
+jellyseerr :: https://jellyseerr.shinjigofret.com
+netflix :: https://netflix.com
+hbomax :: https://play.hbomax.com
+disneyplus :: https://disneyplus.com

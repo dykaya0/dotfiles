@@ -1,0 +1,7 @@
+search_submodules = true
+switch_filter_unknown = true
+session_sort_order = "LastAttached"
+
+[[search_dirs]]
+path = "/home/dogukan/projects"
+depth = 10

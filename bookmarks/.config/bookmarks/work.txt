@@ -1,0 +1,8 @@
+youtube :: https://youtube.com
+github :: https://github.com
+dockerhub :: https://hub.docker.com/repositories/dogukanyesilkaya
+devdocs :: https://devdocs.io
+chatgpt :: https://chatgpt.com
+gemini :: https://gemini.google.com
+claude :: https://claude.ai
+grok :: https://grok.com

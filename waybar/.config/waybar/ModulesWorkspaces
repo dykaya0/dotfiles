@@ -1,28 +1,4 @@
-//* ---- 💫 https://github.com/JaKooLit 💫 ---- *//
-/* Waybar Workspaces modules */
-
-/* Generally, this is a potential expanding of choices for hyprland/workspace */
-// HYPRLAND WORKSPACES. CHOOSE as desired and place on waybar configs
-
 {
-// CIRCLES Style
-"hyprland/workspaces": {
-	"active-only": false,
-	"all-outputs": true,
-	"format": "{icon}",
-	"show-special": false,
-	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
-    "persistent-workspaces": {
-      "*": 5
-	},
-	"format-icons": {
-		"active": "",
-		"default": "",
-	},
-},
-// ROMAN Numerals style
 "hyprland/workspaces#roman": {
 	//"active-only": true,
 	//"all-outputs": true,
@@ -32,41 +8,21 @@
 	//"on-scroll-up": "hyprctl dispatch workspace e+1",
 	//"on-scroll-down": "hyprctl dispatch workspace e-1",
     "persistent-workspaces": {
-      "*": [1,2,3,4,5]
+      "*": [1,2,3,4,5,6]
 	},
 	"format-icons": {
 		"1": "I",
 		"2": "II",
 		"3": "III",
 		"4": "IV",
-		"5": "L",
-		"6": "VI",
+		"5": "V",
+		"6": "L",
 		"7": "VII",
 		"8": "VIII",
 		"9": "IX",
 		"10": "X",
 	},
 },
-// PACMAN Style
-"hyprland/workspaces#pacman": {
-	"active-only": false,
-	"all-outputs": true,
-	"format": "{icon}",
-	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
-	"show-special": false,
-    "persistent-workspaces": {
-      "*": 5
-	},
-	"format": "{icon}",
-	"format-icons": {
-            "active": "<span font='12'>󰮯</span>",
-            "empty": "<span font='8'></span>",
-            "default": "󰊠",
-	},
-},
-// Kanji / Japanese style
 "hyprland/workspaces#kanji": {
 	"disable-scroll": true,
 	"show-special": false,

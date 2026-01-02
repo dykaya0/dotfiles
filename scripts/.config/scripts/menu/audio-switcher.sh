@@ -16,7 +16,6 @@ switchAudio() {
         Headphones) headphones;;
         Speakers) speakers;;
     esac
-
 }
 
 if [[ $# -gt 0 ]]; then
