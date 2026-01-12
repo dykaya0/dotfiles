@@ -62,6 +62,10 @@
   color: @yellow;
 }
 
+#custom-obs-audio.muted {
+  color: @red; /* red */
+}
+
 #tooltip {
   padding: 2px;
 }
