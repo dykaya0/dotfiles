@@ -1,7 +1,16 @@
 search_submodules = true
+recursive_submodules = true
 switch_filter_unknown = true
 session_sort_order = "LastAttached"
 
 [[search_dirs]]
-path = "/home/dogukan/projects"
+path = "/home/dogukan/projects/personal"
+depth = 10
+
+[[search_dirs]]
+path = "/home/dogukan/projects/work"
+depth = 10
+
+[[search_dirs]]
+path = "/home/dogukan/projects/forked"
 depth = 10

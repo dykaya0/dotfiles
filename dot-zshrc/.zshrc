@@ -16,6 +16,7 @@ setopt no_case_glob no_case_match # cmp is case insensitive
 
 # Binds
 bindkey -v
+bindkey '^C' kill-whole-line
 
 # Prompt
 fpath+=($HOME/.zsh/pure)
@@ -69,6 +70,7 @@ alias cat="bat"
 alias lsa="eza -a1"
 alias ls="eza -1"
 alias ytdlp="yt-dlp"
+alias init-repo="tms init-repo"
 
 alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" --exclude "go" . | fzf'
 alias fzd='fd --type d --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'

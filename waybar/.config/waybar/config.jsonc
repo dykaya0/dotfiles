@@ -18,11 +18,13 @@
 
 "modules-left": [
 	"clock",
-	"custom/tomato",
-	"custom/separator#blank_3",
+	"custom/separator#line",
 	"memory",
 	"custom/separator#blank_2",
-	"cpu"
+	"cpu",
+	"custom/separator#line",
+	"custom/obs-audio",
+	"custom/tomato",
 	],
 
 "modules-center": [

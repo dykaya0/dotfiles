@@ -1,4 +1,3 @@
--- Standalone plugins with less than 10 lines of config go here
 return {
 
 	{
@@ -17,24 +16,6 @@ return {
 		-- GitHub integration for vim-fugitive
 		"tpope/vim-rhubarb",
 	},
-	-- {
-	-- 	-- Hints keybinds
-	-- 	"folke/which-key.nvim",
-	-- 	opts = {
-	-- 		-- win = {
-	-- 		--   border = {
-	-- 		--     { '┌', 'FloatBorder' },
-	-- 		--     { '─', 'FloatBorder' },
-	-- 		--     { '┐', 'FloatBorder' },
-	-- 		--     { '│', 'FloatBorder' },
-	-- 		--     { '┘', 'FloatBorder' },
-	-- 		--     { '─', 'FloatBorder' },
-	-- 		--     { '└', 'FloatBorder' },
-	-- 		--     { '│', 'FloatBorder' },
-	-- 		--   },
-	-- 		-- },
-	-- 	},
-	-- },
 	{
 		-- Autoclose parentheses, brackets, quotes, etc.
 		"windwp/nvim-autopairs",
@@ -58,20 +39,4 @@ return {
 			require("colorizer").setup()
 		end,
 	},
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-	},
-	-- {
-	-- 	"echasnovski/mini.nvim",
-	-- 	version = false,
-	-- },
-	-- {
-	-- 	"oysandvik94/curl.nvim",
-	-- 	cmd = { "CurlOpen" },
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 	},
-	-- 	config = true,
-	-- },
 }

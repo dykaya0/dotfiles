@@ -16,3 +16,5 @@ jellyseerr :: https://jellyseerr.shinjigofret.com
 netflix :: https://netflix.com
 hbomax :: https://play.hbomax.com
 disneyplus :: https://disneyplus.com
+leetcode :: https://leetcode.com
+neetcode :: https://neetcode.io/roadmap

@@ -9,32 +9,27 @@
     "interval": 1
 },
 
+"custom/obs-audio": {
+  "format": "OBS {}",
+  "exec": "~/.config/scripts/obs-widget.sh",
+  "interval": 59,
+  "return-type": "json",
+  "on-click": "obs-cmd audio toggle \"Desktop Audio\""
+},
+
 "custom/power": {
 	"format": "⏻",
 	"on-click": "$HOME/.config/hypr/scripts/Wlogout.sh",
 	"tooltip": true,
 	"tooltip-format":"Logout Menu",
 },
-    "group/misc": {
-        "orientation": "inherit",
-            "drawer": {
-                "transition-duration": 200,
-                "transition-left-to-right": true,
-                "click-to-reveal": true,
-            },
-        "modules": [
-            "custom/drawerhead",
-            "custom/xkblayout",
-        ]
-    },
 
-    "custom/tomato": {
-        "format": " | {}",
-        "exec": "tomato -t",
-        "interval": 1, 
-        "tooltip": false,
-        "max-length": 50 
-    },
+ "custom/tomato": {
+     "format": " {}",
+     "exec": "tomato -t",
+     "interval": 1, 
+     "tooltip": false,
+ },
 
 
 "custom/drawerhead": {
