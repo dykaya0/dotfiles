@@ -24,5 +24,13 @@ SCRIPT_NAMES=$(basename -a $SCRIPTS)
 # Show in rofi
 CHOSEN=$(printf "%s\n" $SCRIPT_NAMES | rofi -dmenu -i -p "Run script:")
 
-"$SCRIPT_DIR/$CHOSEN"
-
+# Run the chosen script if selected
+if [ -n "$CHOSEN" ]; then
+    # Ask for confirmation
+    CONFIRM=$(echo -e "No\nYes" | rofi -dmenu -i -p "Are you sure you want to run $CHOSEN?")
+    if [ "$CONFIRM" = "Yes" ]; then
+        "$SCRIPT_DIR/$CHOSEN"
+    else
+        notify-send "Not Executing: $CHOSEN"
+    fi
+fi

@@ -1,21 +1,8 @@
 return {
-
-	{
-		-- autoclose tags
-		"windwp/nvim-ts-autotag",
-	},
-	{
-		-- detect tabstop and shiftwidth automatically
-		"tpope/vim-sleuth",
-	},
-	{
-		-- Powerful Git integration for Vim
-		"tpope/vim-fugitive",
-	},
-	{
-		-- GitHub integration for vim-fugitive
-		"tpope/vim-rhubarb",
-	},
+	-- {
+	-- 	-- detect tabstop and shiftwidth automatically
+	-- 	"tpope/vim-sleuth",
+	-- },
 	{
 		-- Autoclose parentheses, brackets, quotes, etc.
 		"windwp/nvim-autopairs",
@@ -26,7 +13,6 @@ return {
 	},
 	{
 		-- Highlight todo, notes, etc in comments
-
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },

@@ -13,42 +13,18 @@ vim.g.maplocalleader = " "
 -- For conciseness
 local opts = { noremap = true, silent = true }
 
--- LSP Keymaps
-local M = {}
-M.on_attach = function(client, bufnr)
-	local map = function(keys, func, desc, mode)
-		mode = mode or "n"
-		vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
-	end
+-- LSP Keymaps (These global keymaps are created unconditionally when nvim starts)
+-- "gra" (Normal and Visual mode) is mapped to vim.lsp.buf.code_action()
+-- "gri" is mapped to vim.lsp.buf.implementation()
+-- "grn" is mapped to vim.lsp.buf.rename()
+-- "grr" is mapped to vim.lsp.buf.references()
+-- "grt" is mapped to vim.lsp.buf.type_definition()
+-- "gO" is mapped to vim.lsp.buf.document_symbol()
+-- CTRL-S (Insert mode) is mapped to vim.lsp.buf.signature_help()
+-- "an" and "in" (Visual and Operator-pending mode) are mapped to outer and inner incremental selections, respectively, using vim.lsp.buf.selection_range()
 
-	-- Rename the variable
-	map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
-
-	-- Execute a code action
-	map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
-
-	-- Find references for the word under the cursor.
-	map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-
-	-- Jump to the implementation of the word under the cursor.
-	map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-
-	-- Jump to the definition of the word under the cursor.
-	map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-
-	-- Jump to the definition of the word under the cursor in vertical split.
-	map("gd", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", "[G]oto [D]efinition")
-
-	-- Jump to the declaration of the word under the cursor.
-	map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-	-- Fuzzy find all the symbols in your current document.
-	--  Symbols are things like variables, functions, types, etc.
-	map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
-
-	-- Hover Documentation
-	map("K", "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover Documentation")
-end
+-- Restart Lsp
+vim.keymap.set("n", "<leader>rl", "<cmd>lsp restart<CR>", { desc = "Restart Lsp" })
 
 -- Select line
 vim.keymap.set("n", "vv", "_v$", opts)
@@ -57,7 +33,7 @@ vim.keymap.set("n", "vga", "gg_vG$", opts)
 
 -- Open oil.nvim file explorer as floating window
 vim.keymap.set("n", "`", function()
-	require("oil").toggle_float()
+    require("oil").toggle_float()
 end, { desc = "Toggle Oil floating window" })
 
 -- Allow moving the cursor through wrapped lines with j, k
@@ -70,8 +46,6 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 -- Toggle Treesitter context
 vim.keymap.set("n", "<leader>tc", "<cmd>TSContext toggle<CR>", { desc = "Toggle Treesitter Context" })
 
--- Restart Lsp
-vim.keymap.set("n", "<leader>rl", "<cmd>LspRestart<CR>", { desc = "Restart Lsp" })
 
 -- save file without auto-formatting
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
@@ -82,18 +56,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Resize splits with arrows
--- Buffers Navigation
-vim.keymap.set("n", "<leader>bn", ":bnext<CR>", opts) -- Next buffer
-vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", opts) -- Previous buffer
-
 -- Increment/decrement numbers
 vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
 vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
 
 -- Splits
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", opts) -- vertical split
-vim.keymap.set("n", "<leader>ss", ":close<CR>", opts) -- close current split window
+vim.keymap.set("n", "<leader>ss", ":close<CR>", opts)  -- close current split window
 
 --- Navigate
 vim.keymap.set("n", "<leader>h", ":wincmd h<CR>", opts)
@@ -132,11 +101,3 @@ vim.keymap.set({ "n", "v" }, "x", '"_x', opts)
 
 -- Yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
-
--- Diagnostic keymaps
--- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
--- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
--- vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
--- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
-return M

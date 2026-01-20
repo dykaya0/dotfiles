@@ -12,9 +12,9 @@
 "spacing": 3,
 "fixed-center": true,
 "ipc": true,
-"margin-top": 5,
-"margin-left": 8,
-"margin-right": 8,
+"margin-top": 0,
+"margin-left": 0,
+"margin-right": 0,
 
 "modules-left": [
 	"clock",
@@ -24,7 +24,7 @@
 	"cpu",
 	"custom/separator#line",
 	"custom/obs-audio",
-	"custom/tomato",
+	"custom/tomato"
 	],
 
 "modules-center": [
@@ -32,7 +32,7 @@
 	],
 
 "modules-right": [
-        "custom/separator#blank",  
+    "custom/separator#blank",  
 	"tray",
 	"custom/separator#blank",  
 	"network",

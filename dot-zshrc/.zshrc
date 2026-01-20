@@ -71,6 +71,7 @@ alias lsa="eza -a1"
 alias ls="eza -1"
 alias ytdlp="yt-dlp"
 alias init-repo="tms init-repo"
+alias tms="$XDG_CONFIG_HOME/scripts/tmux-session.sh"
 
 alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" --exclude "go" . | fzf'
 alias fzd='fd --type d --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'

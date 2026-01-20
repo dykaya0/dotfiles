@@ -3,11 +3,11 @@ set -eu
 
 # Files
 # Put your files in .config/bookmarks/.
-PERS_FILE="${PERS_FILE:-$HOME/.config/bookmarks/personal.txt}"
-WORK_FILE="${WORK_FILE:-$HOME/.config/bookmarks/work.txt}"
+PERS_FILE="${PERS_FILE:-$HOME/.config/bookmarks/searchandreplace/personal.txt}"
+WORK_FILE="${WORK_FILE:-$HOME/.config/bookmarks/searchandreplace/work.txt}"
 
 # Rofi command
-ROFI="rofi -dmenu -p 'Bookmarks:'"
+ROFI="rofi -dmenu -p 'Bookmarks(Replace):'"
 
 # Browsers
 # Choose your browsers accordingly
@@ -88,6 +88,19 @@ open_with_work() {
     exit 0
   fi
 }
+
+urlencode() {
+  # POSIX-safe URL encoder
+  printf '%s' "$1" | jq -s -R -r @uri
+}
+
+# Detect search template
+if printf '%s' "$url" | grep -q '{{}}'; then
+  query="$(printf '' | rofi -dmenu -p 'Search:' || true)"
+  [ -n "$query" ] || exit 0
+  encoded="$(urlencode "$query")"
+  url="${url//\{\{\}\}/$encoded}"
+fi
 
 case "$tag" in
   personal) open_with_personal "$LIBREWOLF" ;;
