@@ -1,8 +1,8 @@
 @import "colors.css";
 
 * {
-  background-color: @background;
-  color: @foreground;
+  background-color: @surface;
+  color: @love;
 
   border: none;
   border-radius: 0;
@@ -47,24 +47,24 @@
 
 
 #custom-xkblayout {
-  color: #ffffff;
+  color: @love;
   font-size: 16px;
 }
 
 #custom-xkblayout.english {
-  color: @foreground;
+  color: @love;
 }
 
 #custom-xkblayout.turkish {
-  color: @red;
+  color: @gold;
 }
 
-#custom-xkblayout.german {
-  color: @yellow;
-}
+/* #custom-xkblayout.german { */
+/*   color: @yellow; */
+/* } */
 
 #custom-obs-audio.muted {
-  color: @red; /* red */
+  color: @gold; /* red */
 }
 
 #tooltip {

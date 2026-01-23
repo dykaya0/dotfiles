@@ -10,7 +10,7 @@
 },
 
 "custom/obs-audio": {
-  "format": "OBS {}",
+  "format": "{} OBS ",
   "exec": "~/.config/scripts/obs-widget.sh",
   "interval": 59,
   "return-type": "json",

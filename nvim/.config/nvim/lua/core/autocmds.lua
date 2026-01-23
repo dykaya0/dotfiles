@@ -32,17 +32,6 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	desc = "Format on save",
--- 	group = augroup,
--- 	callback = function()
--- 		local efm = vim.lsp.get_clients({ name = "efm" })
--- 		if vim.tbl_isempty(efm) then
--- 			return
--- 		end
--- 		vim.lsp.buf.format({ name = "efm", async = true })
--- 	end,
--- })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",

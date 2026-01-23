@@ -1,0 +1,17 @@
+* {
+    baseColor:                  #191724;
+    surfaceColor:               #1f1d2e;
+    overlayColor:               #26233a;
+    mutedColor:                 #6e6a86;
+    subtleColor:                #908caa;
+    textColor:                  #e0def4;
+    loveColor:                  #eb6f92;
+    goldColor:                  #f6c177;
+    roseColor:                  #ebbcba;
+    pineColor:                  #31748f;
+    foamColor:                  #9ccfd8;
+    irisColor:                  #c4a7e7;
+    highlightLowColor:          #21202e;
+    highlightMedColor:          #403d52;
+    highlightLowColor:          #524f67;
+}

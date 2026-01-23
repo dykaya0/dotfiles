@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR="$HOME/.config/scripts/menu"
+SCRIPT_DIR="$HOME/.config/scripts/bookmarks-menu"
 
 [ -d "$SCRIPT_DIR" ] || {
     notify-send "Script directory not found" "$SCRIPT_DIR"
@@ -15,14 +15,11 @@ while IFS= read -r script; do
     # Remove .sh, replace _ and - with spaces, capitalize words
     name=$(basename "$file" .sh | tr '_-' ' ' | sed 's/\b\(.\)/\u\1/g')
 
-    # Pick an icon (simple heuristic)
+    # Pick an icon (greedy)
     case "$file" in
-        *audio_sink*) icon="󱡫" ;;
-        *audio-switcher*) icon="" ;;
-        *change-keyboardlayout*) icon="󰌌" ;;
-        *clipboard-history*) icon="󱉧" ;;
-        *screenshot-menu*) icon="" ;;
-        *system-maintenance*) icon="" ;;
+        *searchAndReplace*) icon="󰛔" ;;
+        *searchSpecificSite*) icon="󰦄" ;;
+        *search*) icon="" ;;
         *) icon="󰆍" ;;  # default script icon
     esac
 

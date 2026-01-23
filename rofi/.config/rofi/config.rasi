@@ -1,61 +1,41 @@
-/* ROFI SQUARED THEME USING THE EVERFOREST PALETTE  */
-/* Author: Newman Sanchez (https://github.com/newmanls) */
+@import "~/.config/colors/rosepine.rasi"
 
 * {
     /* Theme settings */
     highlight: bold;
     scrollbar: true;
 
-    /* Gruvbox dark colors */
-    gruvbox-dark-bg0-hard:     #191724;
-    gruvbox-dark-bg0:          #1f1d2e;
-    gruvbox-dark-bg2:          #26233a;
-    gruvbox-dark-fg0:          #6e6a86;
-    gruvbox-dark-fg1:          #908caa;
-    gruvbox-dark-red-dark:     #cc241d;
-    gruvbox-dark-red-light:    #fb4934;
-    gruvbox-dark-yellow-dark: #fabd2f;
-    gruvbox-dark-yellow-light:  #f6c177;
-    gruvbox-dark-gray:         #524f67;
+    /* Aliases */
+    bg: @baseColor;
+    bg-alt: @overlayColor;
+    accent: @loveColor;
+    warning: @foamColor;
+    text: @textColor;
 
-    /* Theme colors */
-    background:                  @gruvbox-dark-bg0-hard;
-    background-color:            @background;
-    foreground:                  @gruvbox-dark-fg1;
-    border-color:                @gruvbox-dark-gray;
-    separatorcolor:              @border-color;
-    scrollbar-handle:            @border-color;
-
-    normal-background:           @background;
-    normal-foreground:           @foreground;
-    alternate-normal-background: @gruvbox-dark-bg0;
-    alternate-normal-foreground: @foreground;
-    selected-normal-background:  @gruvbox-dark-bg2;
-    selected-normal-foreground:  @gruvbox-dark-fg0;
-
-    active-background:           @gruvbox-dark-yellow-dark;
-    active-foreground:           @background;
-    alternate-active-background: @active-background;
-    alternate-active-foreground: @active-foreground;
-    selected-active-background:  @gruvbox-dark-yellow-light;
-    selected-active-foreground:  @active-foreground;
-
-    urgent-background:           @gruvbox-dark-red-dark;
-    urgent-foreground:           @background;
-    alternate-urgent-background: @urgent-background;
-    alternate-urgent-foreground: @urgent-foreground;
-    selected-urgent-background:  @gruvbox-dark-red-light;
-    selected-urgent-foreground:  @urgent-foreground;
+    font: "JetBrains Mono Nerd Font 12";
 }
 
 window {
+    background-color:            @bg;
+    border-color:            @accent;
+
     location:   center;
     width:      720;
+
+    children:   [ mainbox ];
+}
+
+mainbox {
+    background-color:        inherit;
+    border-color:            inherit;
 
     children:   [ inputbar, listview  ];
 }
 
 inputbar {
+    background-color:        @accent;
+    border-color:            inherit;
+
     spacing:    8px;
     padding:    8px;
     children:   [ prompt, entry ];
@@ -63,11 +43,13 @@ inputbar {
 
 
 listview {
+    background-color:            inherit;
+    border-color:            inherit;
+
     padding:    4px 0;
     lines:      8;
     columns:    1;
 
-    heigth: 400;
     fixed-height:   true;
     children:      [ element ];
 }
@@ -78,10 +60,22 @@ element {
     children:   [ element-icon, element-text ];
 }
 
-element-icon {
-    size:   0.8em;
+
+element normal.normal {
+    background-color:            @bg;
+    border-color:            inherit;
+    text-color: @text;
 }
 
-prompt, entry, element-icon, element-text {
-    vertical-align: 0.5;
+element alternate.normal {
+    background-color:            @bg-alt;
+    border-color:            inherit;
+    text-color: @text;
 }
+
+element selected.normal {
+    background-color:            @accent;
+    border-color:            inherit;
+    text-color: @text-alt;
+}
+

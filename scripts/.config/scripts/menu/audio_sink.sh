@@ -2,7 +2,7 @@
 
 # Set default output device to headphone
 # pactl set-default-sink "alsa_output.usb-SteelSeries_Arctis_Nova_Pro_Wireless-00.analog-stereo"
-$XDG_CONFIG_HOME/scripts/menu/audio-switcher-v2.sh headphones
+$XDG_CONFIG_HOME/scripts/menu/audio-switcher.sh headphones
 sleep 1
 
 # Step 1 - Create the null sinks

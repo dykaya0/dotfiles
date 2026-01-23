@@ -24,12 +24,12 @@ local opts = { noremap = true, silent = true }
 -- "an" and "in" (Visual and Operator-pending mode) are mapped to outer and inner incremental selections, respectively, using vim.lsp.buf.selection_range()
 
 -- Restart Lsp
-vim.keymap.set("n", "<leader>rl", "<cmd>lsp restart<CR>", { desc = "Restart Lsp" })
+-- vim.keymap.set("n", "<leader>rl", "<cmd>lsp restart<CR>", { desc = "Restart Lsp" })
 
 -- Select line
 vim.keymap.set("n", "vv", "_v$", opts)
 -- Select all file
-vim.keymap.set("n", "vga", "gg_vG$", opts)
+vim.keymap.set("n", "vga", "gg0vG$", opts)
 
 -- Open oil.nvim file explorer as floating window
 vim.keymap.set("n", "`", function()
@@ -43,19 +43,14 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- clear highlights
 vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 
--- Toggle Treesitter context
-vim.keymap.set("n", "<leader>tc", "<cmd>TSContext toggle<CR>", { desc = "Toggle Treesitter Context" })
-
-
 -- save file without auto-formatting
-vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
+vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({}) <CR>", opts)
 
 -- Center screen when vertical scroll and find
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-
 -- Increment/decrement numbers
 vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
 vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement

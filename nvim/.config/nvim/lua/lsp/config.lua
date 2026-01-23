@@ -4,6 +4,7 @@ vim.lsp.enable({
     "gopls",
     "clangd",
     "jsonls",
+    "omnisharp",
 }, true)
 
 vim.api.nvim_create_autocmd('LspAttach', {
