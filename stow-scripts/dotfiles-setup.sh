@@ -13,7 +13,7 @@ fi
 
 if [ $? -eq 0 ]; then
   cd "$DOTFILES_DIR"
-  stow -R -v */
+  stow -R --dotfiles -v */
 else
   echo "Failed to stow the repo"
   exit 1

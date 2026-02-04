@@ -28,7 +28,11 @@
 	],
 
 "modules-center": [
-        "hyprland/workspaces#roman"
+        "hyprland/workspaces#kanji",
+        "custom/separator#line",
+        "idle_inhibitor",
+        "custom/separator#blank_2",  
+        "custom/packages"
 	],
 
 "modules-right": [

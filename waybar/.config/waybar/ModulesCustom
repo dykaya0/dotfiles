@@ -31,6 +31,15 @@
      "tooltip": false,
  },
 
+"custom/packages": {
+  "exec": "~/.config/waybar/scripts/package-updates.sh",
+  "exec-if": "command -v paru",
+  "interval": "once",
+  "return-type": "json",
+  "on-click": "foot -e paru -Syu",
+  "tooltip": true
+},
+
 
 "custom/drawerhead": {
 	"format": "  ",

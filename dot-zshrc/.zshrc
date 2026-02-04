@@ -28,7 +28,6 @@ source <(fzf --zsh)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
 eval "$(zoxide init zsh)"
-
 _fzf_compgen_path() {
   fd --hidden --follow \
     --exclude "/.cache" \
@@ -63,20 +62,18 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+
 # Alias
 alias n="nvim"
 alias cd="z"
 alias cat="bat"
 alias lsa="eza -a1"
 alias ls="eza -1"
-alias ytdlp="yt-dlp"
-alias init-repo="tms init-repo"
 alias tms="$XDG_CONFIG_HOME/scripts/tmux-session.sh"
+alias theme="$XDG_CONFIG_HOME/scripts/change-theme.sh"
 
 alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" --exclude "go" . | fzf'
 alias fzd='fd --type d --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'
 
-fpath=(~/.zsh/completions $fpath)
-autoload -U compinit && compinit
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit

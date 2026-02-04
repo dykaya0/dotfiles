@@ -18,3 +18,4 @@ hbomax :: https://play.hbomax.com
 disneyplus :: https://disneyplus.com
 leetcode :: https://leetcode.com
 neetcode :: https://neetcode.io/roadmap
+hyprwiki :: https://wiki.hypr.land

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-layout=$(hyprctl devices -j | jq -r '.keyboards[] | select(.name == "ckb1:-corsair-k60-rgb-pro-low-profile-mechanical-gaming-keyboard-vkb") | .active_keymap')
+layout=$(hyprctl devices -j | jq -r '.keyboards[] | select(.name == "corsair-corsair-k60-rgb-pro-low-profile-mechanical-gaming-keyboard") | .active_keymap')
 
 # Map key layout to CSS class
 case "$layout" in

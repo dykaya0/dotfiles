@@ -42,18 +42,9 @@
 },
 
 "cpu": {
-     "interval": 1,
-     "format": " {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
-     "format-icons": [
-          "<span color='#eb6f92'>▁</span>", // default
-          "<span color='#eb6f92'>▂</span>", // default
-          "<span color='#eb6f92'>▃</span>", // default
-          "<span color='#eb6f92'>▄</span>", // default
-          "<span color='#eb6f92'>▅</span>", // default
-          "<span color='#f6c177'>▆</span>", // accent
-          "<span color='#f6c177'>▇</span>", // accent
-          "<span color='#f6c177'>█</span>"  // accent
-     ]
+     "interval": 3,
+     "format": " %{usage}",
+     "max-length": 10
 },
 
 "network": {
@@ -93,6 +84,19 @@
   "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
   "tooltip": true,
   "tooltip-format": "{icon} {desc} | {volume}%",
+},
+
+"idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "",
+        "deactivated": ""
+    }
+},
+"disk": {
+    "interval": 30,
+    "format": "{percentage_free}% free on {path}",
+    "path": "/"
 },
 
 

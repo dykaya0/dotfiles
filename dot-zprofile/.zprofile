@@ -1,6 +1,6 @@
 export EDITOR="nvim"
-export BROWSER="firefox"
-export BROWSER2="zen-browser"
+export BROWSER="librewolf"
+export BROWSER2="brave"
 export MANPAGER="nvim +Man!"
 
 export XDG_CONFIG_HOME="$HOME/.config"

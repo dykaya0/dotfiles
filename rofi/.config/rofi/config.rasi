@@ -1,4 +1,4 @@
-@import "~/.config/colors/rosepine.rasi"
+@import "colors.rasi"
 
 * {
     /* Theme settings */
@@ -6,11 +6,12 @@
     scrollbar: true;
 
     /* Aliases */
-    bg: @baseColor;
-    bg-alt: @overlayColor;
-    accent: @loveColor;
-    warning: @foamColor;
-    text: @textColor;
+    bg: @surface-dim;
+    bg-alt: @surface-bright;
+    accent: @primary;
+    warning: @error;
+    text: @secondary;
+    text-alt: @on-secondary;
 
     font: "JetBrains Mono Nerd Font 12";
 }

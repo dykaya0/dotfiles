@@ -10,9 +10,9 @@ headphones() {
 
     if [[ -n "$SINK" ]]; then
         pactl set-default-sink "$SINK"
-        notify-send -h string:bgcolor:#a3be8c "Audio switched to headphones "
+        notify-send -h string:bgcolor:#31748f "Audio switched to headphones "
     else
-        notify-send -h string:bgcolor:#bf616a "Headphones not found"
+        notify-send -h string:bgcolor:#f6c177 "Headphones not found"
     fi
 }
 
@@ -21,17 +21,17 @@ speakers() {
 
     if [[ -n "$SINK" ]]; then
         pactl set-default-sink "$SINK"
-        notify-send -h string:bgcolor:#bf616a "Audio switched to speakers 󰴸"
+        notify-send -h string:bgcolor:#eb6f92 "Audio switched to speakers 󰴸"
     else
-        notify-send -h string:bgcolor:#bf616a "Speakers not found"
+        notify-send -h string:bgcolor:#f6c177 "Speakers not found"
     fi
 }
 
 switchAudio() {
-    choice=$(printf "Headphones\nSpeakers" | rofi -dmenu -c -l 2 -i -p "Choose output:")
+    choice=$(printf "  Headphones\n󰴸  Speakers" | rofi -dmenu -i -l 2 -p "Choose output:")
     case "$choice" in
-        Headphones) headphones ;;
-        Speakers)   speakers ;;
+        *Headphones*) headphones ;;
+        *Speakers*)   speakers ;;
     esac
 }
 
