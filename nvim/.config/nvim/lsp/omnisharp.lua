@@ -1,10 +1,16 @@
 return {
-    cmd = { "OmniSharp", "--languageserver" },
-    filetypes = {
-        'cs',
+    cmd = {
+        vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp",
+        "--languageserver",
+        "--hostPID",
+        tostring(vim.fn.getpid()),
     },
+
+    filetypes = { "cs" },
+
     root_markers = {
-        '*.csproj',
-        '*.sln',
+        "*.sln",
+        "*.csproj",
+        ".git"
     },
 }

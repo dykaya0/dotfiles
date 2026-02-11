@@ -28,9 +28,9 @@ if ! tmux has-session -t "$selected_name"; then
 fi
 
 if [[ -z $TMUX ]]; then
-    hyprctl dispatch tagwindow +tmux
+    # hyprctl dispatch tagwindow +tmux
     tmux attach -t "$selected_name"
 else
-    hyprctl dispatch tagwindow +tmux
+    # hyprctl dispatch tagwindow +tmux
     tmux switch-client -t "$selected_name"
 fi

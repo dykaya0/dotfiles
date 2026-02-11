@@ -36,7 +36,7 @@
   "exec-if": "command -v paru",
   "interval": "once",
   "return-type": "json",
-  "on-click": "foot -e paru -Syu",
+  "on-click": "foot -e paru -Syu --noconfirm",
   "tooltip": true
 },
 

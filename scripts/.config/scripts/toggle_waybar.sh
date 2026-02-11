@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-pkill -SIGUSR2 waybar
+pkill -SIGUSR1 waybar

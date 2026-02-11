@@ -26,10 +26,8 @@ local opts = { noremap = true, silent = true }
 -- Restart Lsp
 -- vim.keymap.set("n", "<leader>rl", "<cmd>lsp restart<CR>", { desc = "Restart Lsp" })
 
--- Select line
-vim.keymap.set("n", "vv", "_v$", opts)
 -- Select all file
-vim.keymap.set("n", "vga", "gg0vG$", opts)
+vim.keymap.set("n", "vga", "ggVG", opts)
 
 -- Open oil.nvim file explorer as floating window
 vim.keymap.set("n", "`", function()

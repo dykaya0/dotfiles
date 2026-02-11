@@ -54,15 +54,15 @@
 }
 
 #custom-xkblayout.turkish {
-  color: @secondary;
+  color: @secondary_fixed;
 }
 
 #custom-obs-audio.muted {
-  color: @error;
+  color: @secondary_fixed;
 }
 
 #idle_inhibitor.activated {
-  color: @error;
+  color: @secondary_fixed;
 }
 
 #custom-packages.low {
@@ -70,7 +70,7 @@
 }
 
 #custom-packages.mid {
-  color: @secondary;
+  color: @secondary_fixed;
 }
 
 #custom-packages.high {
