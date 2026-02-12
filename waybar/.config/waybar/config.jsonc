@@ -22,7 +22,11 @@
 	"memory",
 	"custom/separator#blank",
 	"cpu",
-	"custom/separator#line",
+	// "custom/separator#blank",
+	// "backlight",
+	// "custom/separator#blank",  
+	// "battery",
+	"custom/separator#line",  
 	"custom/obs-audio",
 	"custom/tomato"
 	],
@@ -42,10 +46,6 @@
 	"network",
 	"custom/xkblayout",
 	"custom/separator#blank",  
-	// "backlight",
-	// "custom/separator#blank",  
-	// "battery",
-	// "custom/separator#blank",  
 	  
 	"pulseaudio",
 	"custom/separator#blank",

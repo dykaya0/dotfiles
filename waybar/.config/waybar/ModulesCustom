@@ -1,50 +1,45 @@
 {
-
 "custom/xkblayout": {
+    "exec-if": "~/.config/waybar/scripts/keyboardlayout.sh",
     "exec": "~/.config/waybar/scripts/keyboardlayout.sh",
-    "return-type": "json" ,
-    "tooltip": true,
-    "tooltip-format": "{text}",
+    "interval": 1,
     "format": "󰌌",
-    "interval": 1
+    "return-type": "json",
+    "tooltip": true,
+    "tooltip-format": "{text}"
 },
 
 "custom/obs-audio": {
-  "format": "{} OBS ",
+  "exec-if": "~/.config/scripts/obs-widget.sh isReady",
   "exec": "~/.config/scripts/obs-widget.sh",
   "interval": 59,
+  "format": "{} OBS",
   "return-type": "json",
-  "on-click": "obs-cmd audio toggle \"Desktop Audio\""
+  "on-click": "~/.config/scripts/obs-widget.sh toggleStatus"
 },
 
 "custom/power": {
 	"format": "⏻",
-	"on-click": "$HOME/.config/hypr/scripts/Wlogout.sh",
 	"tooltip": true,
 	"tooltip-format":"Logout Menu",
+    "on-click": "wlogout"
 },
 
  "custom/tomato": {
-     "format": " {}",
+     "exec-if": "command -v tomato",
      "exec": "tomato -t",
      "interval": 1, 
-     "tooltip": false,
+     "format": " {}",
+     "tooltip": false
  },
 
 "custom/packages": {
+  "exec-if": "~/.config/waybar/scripts/package-updates.sh isReady",
   "exec": "~/.config/waybar/scripts/package-updates.sh",
-  "exec-if": "command -v paru",
   "interval": "once",
   "return-type": "json",
-  "on-click": "foot -e paru -Syu --noconfirm",
-  "tooltip": true
-},
-
-
-"custom/drawerhead": {
-	"format": "  ",
-	"interval": "once",
-	"tooltip": true
+  "tooltip": true,
+  "on-click": "~/.config/waybar/scripts/package-updates.sh update"
 },
 
 // Separators
@@ -77,54 +72,6 @@
 	"format": "   ",
 	"interval": "once",
 	"tooltip": false
-},
-"custom/arrow1": {
-	"format": "",
-	"tooltip": false
-},
-
-"custom/arrow2": {
-	"format": "",
-	"tooltip": false
-},
-
-"custom/arrow3": {
-	"format": "",
-	"tooltip": false
-},
-
-"custom/arrow4": {
-	"format": "",
-	"tooltip": false
-},
-
-"custom/arrow5": {
-	"format": "",
-	"tooltip": false
-},
-
-"custom/arrow6": {
-	"format": "",
-	"tooltip": false
-},
-
-"custom/arrow7": {
-	"format": "",
-	"tooltip": false
-},
-
-"custom/arrow8": {
-	"format": "",
-	"tooltip": false
-},
-
-"custom/arrow9": {
-	"format": "",
-	"tooltip": false
-},
-
-"custom/arrow10": {
-	"format": "",
-	"tooltip": false
 }
+
 }

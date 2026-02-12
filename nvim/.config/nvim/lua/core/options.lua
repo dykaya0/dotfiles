@@ -49,6 +49,7 @@ vim.opt.mouse = "a"                               -- Enable mouse mode
 vim.opt.clipboard:append("unnamedplus")           -- Use system clipboard
 vim.opt.fileencoding = "UTF-8"                    -- the encoding written to a file
 vim.o.breakindent = true                          -- Enable break indent
-vim.o.splitright = true                           -- force all vertical splits to go to the right of current window
+vim.o.splitright = true                           -- Open new split on right
+vim.o.splitbelow = true                           -- Open new split on below
 -- Cursor Settings
 -- vim.opt.guicursor =	"n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"

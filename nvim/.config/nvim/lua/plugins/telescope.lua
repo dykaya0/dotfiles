@@ -5,7 +5,7 @@ return {
         "nvim-lua/plenary.nvim",
         'nvim-treesitter/nvim-treesitter',
         -- optional
-        {"nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
         -- Useful for getting pretty icons, but requires a Nerd Font.
         "nvim-tree/nvim-web-devicons",
@@ -25,7 +25,8 @@ return {
                         ["q"] = actions.close,
                     },
                 },
-            }, pickers = {
+            },
+            pickers = {
                 find_files = {
                     file_ignore_patterns = { "node_modules", ".git", ".venv" },
                     hidden = true,
@@ -77,7 +78,7 @@ return {
         vim.keymap.set("n", "<leader>sm", builtin.marks, { desc = "[S]earch [M]arks" })
         vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
         vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search [G]it [C]ommits" })
-        vim.keymap.set("n", "<leader>gcf", builtin.git_bcommits, { desc = "Search [G]it [C]ommits for current [F]ile" })
+        vim.keymap.set("n", "<leader>gC", builtin.git_bcommits, { desc = "Search [G]it [C]ommits in current buffer" })
         vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Search [G]it [B]ranches" })
         vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Search [G]it [S]tatus (diff view)" })
         vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })

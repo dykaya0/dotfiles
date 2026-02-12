@@ -15,29 +15,32 @@
 			"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
 			"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
 		}
-	},
-    "on-click-middle": "/home/dogukan/.config/scripts/stopwatch-menu.sh",
+	}
 },
 
 "battery": {
     "interval": 60,
     "states": {
-        "warning": 30,
-        "critical": 15
+        "warning": 50,
+        "critical": 25
     },
     "format": "{capacity}% {icon}",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": {
+        "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+    },
     "max-length": 25
 },
 
 "backlight": {
     "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "format-icons": ["", ""]
+    "format": "{icon}%{percent}",
+    "format-icons": ["󱩎","󱩏", "󱩐","󱩑", "󱩒","󱩓", "󱩔","󱩔", "󱩕","󰛨"]
 },
 
 "memory": {
     "interval": 30,
+    "max-length": 15,
     "format": " {used:0.1f}G/{total:0.1f}G"
 },
 
@@ -52,18 +55,17 @@
 	"format-wifi": "{icon}",
 	"format-ethernet": "󰣺",
 	"format-disconnected": "󰣼",
-	"tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
-	"format-linked": "󰈁 {ifname} (No IP)",
-	//"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-	//"tooltip-format-ethernet": "{ifname} 󰌘",
-	//"tooltip-format-disconnected": "󰌙 Disconnected",
+    "format-linked": "󰈁 {ifname} (No IP)",
+	"tooltip-format": "{ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+	"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+	"tooltip-format-ethernet": "{ifname} 󰌘",
+	"tooltip-format-disconnected": "󰌙 Disconnected",
 	"max-length": 30,
 	"format-icons": [
 		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
 	],
-	"on-click-right": "$HOME/.config/hypr/scripts/WaybarScripts.sh --nmtui"
+	"on-click": "nm-connection-editor"
 },
-
 
 "pulseaudio": {
   "format": "{icon} {volume}%",
@@ -71,12 +73,9 @@
   "format-bluetooth-muted": " {icon}",
   "format-muted": "󰸈 0%",
   "format-icons": {
-      "headphone": "",
+      "headphone": "",
       "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
+      "headset": "",
       "default": ["", "", ""]
     },
   "on-click": "pavucontrol -t 3",
@@ -102,23 +101,7 @@
 
 "tray": {
 	"icon-size": 20,
-	"spacing": 4,
-},
-
-
-"wlr/taskbar": {
-	"format": "{icon} {name}",
-	"icon-size": 16,
-	"all-outputs": false,
-	"tooltip-format": "{title}",
-	"on-click": "activate",
-	"on-click-middle": "close",
-	"ignore-list": [
-		"wofi",
-		"rofi",
-		"kitty",
-    "kitty-dropterm"
-		],
+	"spacing": 8,
 },
 
 }
