@@ -1,0 +1,10 @@
+[Unit]
+Description=Run OpenRGB server
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/openrgb --server --config %h/.config/OpenRGB --profile Default.orp
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

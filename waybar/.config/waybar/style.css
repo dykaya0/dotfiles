@@ -5,7 +5,8 @@
   color: @primary;
   border: none;
   border-radius: 0;
-  min-height: 0; font-family: JetBrainsMono Nerd Font Propo;
+  min-height: 0;
+  font-family: JetBrainsMono Nerd Font Propo;
   font-size: 14px;
 }
 
@@ -17,10 +18,37 @@
   margin-right: 8px;
 }
 
+#clock,
+#memory,
+#cpu,
+#battery,
+#backlight,
+#custom-obs-audio,
+#custom-tomato{
+  margin: 0 4px;
+}
+
+#workspaces {
+  margin: 0 6px;
+}
+
+#idle_inhibitor,
+#custom-packages{
+  margin: 0 6px;
+}
+
+#tray,
+#network,
+#custom-xkblayout,
+#pulseaudio,
+#custom-power {
+  margin: 0 6px;
+}
+
 #workspaces button {
   all: initial;
   padding: 0 6px;
-  margin: 0 1.5px;
+  margin: 0 2px;
   min-width: 9px;
   opacity: 0.5;
 }
@@ -31,17 +59,6 @@
 
 #workspaces button.active {
   opacity: 1;
-}
-
-#tray,
-#cpu,
-#battery,
-#network,
-#bluetooth,
-#pulseaudio,
-#tray {
-  min-width: 12px;
-  margin: 0 8px;
 }
 
 #custom-xkblayout {
@@ -78,11 +95,7 @@
 }
 
 #custom-separator.line {
-  color: @tertiery;
-}
-
-#tooltip {
-  padding: 2px;
+  color: @tertiary;
 }
 
 

@@ -1,6 +1,6 @@
 {
 "custom/xkblayout": {
-    "exec-if": "~/.config/waybar/scripts/keyboardlayout.sh",
+    "exec-if": "~/.config/waybar/scripts/keyboardlayout.sh isReady",
     "exec": "~/.config/waybar/scripts/keyboardlayout.sh",
     "interval": 1,
     "format": "󰌌",
@@ -25,7 +25,7 @@
     "on-click": "wlogout"
 },
 
- "custom/tomato": {
+ "custom/timer": {
      "exec-if": "command -v tomato",
      "exec": "tomato -t",
      "interval": 1, 
@@ -42,36 +42,10 @@
   "on-click": "~/.config/waybar/scripts/package-updates.sh update"
 },
 
-// Separators
-"custom/separator#dot": {
-	"format": "",
-	"interval": "once",
-	"tooltip": true
-},
-"custom/separator#dot-line": {
-	"format": "",
-	"interval": "once",
-	"tooltip": false
-},
 "custom/separator#line": {
 	"format": " | ",
 	"interval": "once",
 	"tooltip": false
 },
-"custom/separator#blank": {
-	"format": "",
-	"interval": "once",
-	"tooltip": false
-},
-"custom/separator#blank_2": {
-	"format": "  ",
-	"interval": "once",
-	"tooltip": false
-},
-"custom/separator#blank_3": {
-	"format": "   ",
-	"interval": "once",
-	"tooltip": false
-}
 
 }

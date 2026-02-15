@@ -51,14 +51,14 @@
 },
 
 "network": {
-	"format": "{ifname}",
+	"format": "󰣺",
 	"format-wifi": "{icon}",
 	"format-ethernet": "󰣺",
 	"format-disconnected": "󰣼",
     "format-linked": "󰈁 {ifname} (No IP)",
 	"tooltip-format": "{ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
 	"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-	"tooltip-format-ethernet": "{ifname} 󰌘",
+	"tooltip-format-ethernet": "{ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
 	"tooltip-format-disconnected": "󰌙 Disconnected",
 	"max-length": 30,
 	"format-icons": [

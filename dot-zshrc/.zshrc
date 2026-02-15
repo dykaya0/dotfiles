@@ -19,9 +19,7 @@ bindkey -v
 bindkey '^C' kill-whole-line
 
 # Prompt
-fpath+=($HOME/.zsh/pure)
-autoload -U promptinit; promptinit
-prompt pure
+eval "$(starship init zsh)"
 
 # Source
 source <(fzf --zsh)

@@ -33,3 +33,8 @@ output_path = '~/.config/gtk-4.0/colors.css'
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/utils/colors.conf'
 post_hook = 'hyprctl reload'
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop || true'
