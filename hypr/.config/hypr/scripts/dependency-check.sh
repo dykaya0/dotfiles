@@ -1,34 +1,11 @@
 #!/usr/bin/env bash
 
-# Array of required commands
-required_commands=(
-    notify-send
-    rofi
-    waybar
-    nvim
-    vim
-    git
-    ghostty
-    foot
-    starship
-    tmux
-    wlogout
-    btop
-    mpv
-    nsxiv
-    matugen
-    yt-dlp
-    xrdb
-    cliphist
-    obs
-    obs-cmd
-    pactl
-)
+source $HOME/dotfiles/_stow-scripts/packages.conf
 
 missing=()
 
-for cmd in "${required_commands[@]}"; do
-    if ! command -v "$cmd" >/dev/null 2>&1; then
+for cmd in "${SYSTEM_UTILS[@]}"; do
+    if ! pacman -Qi "$cmd" &>/dev/null; then
         missing+=("$cmd")
     fi
 done

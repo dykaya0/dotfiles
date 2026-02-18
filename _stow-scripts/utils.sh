@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 print_logo() {
     cat << "EOF"
@@ -20,36 +20,76 @@ print_logo() {
 EOF
 }
 
-# Function to check if a package is installed
+color_echo() {
+    local color_name="$1"
+    shift
+    local text="$*"
+
+    declare -A colors=(
+        [black]=30
+        [red]=31
+        [green]=32
+        [yellow]=33
+        [blue]=34
+        [magenta]=35
+        [cyan]=36
+        [white]=37
+    )
+
+    local color_code="${colors[$color_name]}"
+    echo -e "\e[${color_code}m${text}\e[0m"
+}
+
+print_defaults() {
+    if [[ -z "$XDG_CONFIG_HOME" ]]; then
+        color_echo red "\$XDG_CONFIG_HOME is null or empty"
+    fi
+
+    color_echo blue "Defaults: "
+
+    color_echo magenta "$XDG_CONFIG_HOME/hypr/configs/variables.conf =>"
+    echo -e "\t.\n\t.\n\t."
+    sed -n '10,20p' $XDG_CONFIG_HOME/hypr/configs/variables.conf
+    echo -e "\t.\n\t.\n\t."
+
+    color_echo magenta "$XDG_CONFIG_HOME/waybar/config.jsonc =>"
+    echo -e "\t.\n\t.\n\t."
+    sed -n '8p' $XDG_CONFIG_HOME/waybar/config.jsonc
+    echo -e "\t.\n\t.\n\t."
+}
+
+reload-config() {
+    hyprctl reload &>/dev/null
+}
+
 is_installed() {
   pacman -Qi "$1" &> /dev/null
 }
 
-# Function to check if a package is installed
 is_group_installed() {
   pacman -Qg "$1" &> /dev/null
 }
 
 install_aur_helper() {
     if ! command -v paru &> /dev/null; then
-        echo "Installing paru AUR helper..."
+        color_echo cyan "Installing paru AUR helper..."
         sudo pacman -S --needed git base-devel --noconfirm
         if [[ ! -d "paru" ]]; then
-            echo "Cloning paru repository..."
+            color_echo blue "Cloning paru repository..."
         else
-            echo "paru directory already exists, removing it..."
+            color_echo red "paru directory already exists, removing it..."
             rm -rf paru
         fi
 
         git clone https://aur.archlinux.org/paru.git
 
         cd paru
-        echo "building paru"
+        color_echo yellow "building paru"
         makepkg -si --noconfirm
         cd ..
         rm -rf paru
     else
-        echo "AUR helper(paru) is already installed"
+        color_echo green "AUR helper(paru) is already installed"
     fi
 }
 
@@ -65,7 +105,7 @@ install_packages() {
   done
 
   if [ ${#to_install[@]} -ne 0 ]; then
-    echo "Installing: ${to_install[*]}"
+    color_echo cyan "Installing: ${to_install[*]}"
     paru -S --noconfirm "${to_install[@]}"
   fi
 } 

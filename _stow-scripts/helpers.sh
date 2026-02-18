@@ -4,24 +4,24 @@ source utils.sh
 
 change-shell() {
     if ! command -v zsh &>/dev/null; then
-        echo "zsh is not installed."
+        color_echo red "zsh is not installed."
         return 1
     fi
 
     local current_shell
-    current_shell="$(getent passwd "$USER" | cut -d: -f7)"
+    current_shell="$(getent passwd "$(id -u)" | cut -d: -f7)"
 
     local zsh_path
     zsh_path="$(command -v zsh)"
 
     if [[ "$current_shell" == "$zsh_path" ]]; then
-        echo "Shell is already set to zsh."
+        color_echo magenta "Shell is already set to zsh."
         return 0
     fi
 
-    echo "Changing shell to zsh..."
+    color_echo magenta "Changing shell to zsh..."
     chsh -s "$zsh_path" || {
-        echo "Failed to change shell."
+        color_echo red "Failed to change shell."
         return 1
     }
 
@@ -32,32 +32,32 @@ dotfiles-setup() {
     DOTFILES_DIR="$HOME/dotfiles"
 
 if ! is_installed stow; then
-    echo "Install stow first"
+    color_echo red "Install stow first"
     return 1
 fi
 
 cd "$DOTFILES_DIR" || {
-    echo "Dotfiles directory not found"
+    color_echo red "Dotfiles directory not found"
     return 1
 }
 
-echo "Preview of stow changes:"
-if ! stow -vnR --dotfiles [a-z]*/; then
-    echo "Stow preview failed."
+color_echo magenta "Preview of stow changes:"
+if ! stow -nvR --dotfiles [a-z]*/; then
+    color_echo red "Stow preview failed."
     return 1
 fi
 
 read -rp "Do you want to proceed stow(will recreate existing symlinks)? [y/N]: " run_stow
 
 if [[ "$run_stow" =~ ^[Yy]$ ]]; then
-    echo "Stow in progress..."
+    color_echo yellow "Stow in progress..."
     stow -vR --dotfiles [a-z]*/ || {
         echo "Stow failed."
         return 1
     }
-    echo "Dotfiles installed succesfully."
+    color_echo green "Dotfiles symlinked succesfully."
 else
-    echo "Stow canceled."
+    color_echo red "Stow canceled."
     return 0
 fi
 
@@ -65,60 +65,69 @@ fi
 
 install-packages() {
 if [ ! -f "packages.conf" ]; then
-    echo "Error: packages.conf not found!"
+    color_echo red "Error: packages.conf not found!"
     return 1
 fi
 
 source packages.conf
 
 # Update the system first
-echo "Updating system..."
+color_echo yellow "Updating system..."
 sudo pacman -Syu --noconfirm
 
 install_aur_helper
 
 # Sync packages 
-echo "Installing system utilities..."
+color_echo yellow "Installing system utilities..."
 install_packages "${SYSTEM_UTILS[@]}"
 
-echo "Installing Desktop utils..."
+color_echo yellow "Installing Desktop utils..."
 install_packages "${DESKTOP[@]}"
 
 # Ask confirmation before installing fonts
 read -rp "Do you want to install development tools? [y/N]: " install_devtools
 if [[ "$install_devtools" =~ ^[Yy]$ ]]; then
-    echo "Installing development tools..."
+    color_echo yellow "Installing development tools..."
     install_packages "${DEV_TOOLS[@]}"
 else
-    echo "Skipping development tools installation."
+    color_echo red "Skipping development tools installation."
 fi
 
-echo "Installing fonts..."
+# Ask confirmation before installing extra packages
+read -rp "Do you want to install extra packages? [y/N]: " install_extras
+if [[ "$install_extras" =~ ^[Yy]$ ]]; then
+    color_echo yellow "Installing extra packages..."
+    install_extras "${EXTRA[@]}"
+else
+    color_echo red "Skipping extra packages installation."
+fi
+
+color_echo yellow "Installing fonts..."
 install_packages "${FONTS[@]}"
 
 fc-cache -v &>/dev/null
 
 # Enable services
-echo "Configuring services..."
+color_echo blue "Configuring services..."
 for service in "${SERVICES[@]}"; do
     if ! systemctl is-enabled "$service" &> /dev/null; then
-        echo "Enabling $service..."
+        color_echo green "Enabling $service..."
         sudo systemctl enable "$service"
     else
-        echo "$service is already enabled"
+        color_echo red "$service is already enabled"
     fi
 done
 
-echo "Configuring user services..."
+color_echo blue "Configuring user services..."
 for service in "${USER_SERVICES[@]}"; do
     if ! systemctl --user is-enabled "$service" &> /dev/null; then
-        echo "Enabling user service: $service"
+        color_echo green "Enabling user service: $service"
         systemctl --user enable "$service"
     else
-        echo "User service $service is already enabled"
+        color_echo red "User service $service is already enabled"
     fi
 done
 
-echo "Packages installed, services configured."
+color_echo green "Packages installed, services configured."
 
 }

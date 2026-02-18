@@ -78,11 +78,12 @@
       "headset": "",
       "default": ["", "", ""]
     },
+  "tooltip": true,
+  "tooltip-format": "{icon} {desc} | {volume}%",
   "on-click": "pavucontrol -t 3",
   "on-click-middle": "$HOME/.config/scripts/menu/audio-switcher.sh",
   "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-  "tooltip": true,
-  "tooltip-format": "{icon} {desc} | {volume}%",
+  "scroll-step": 5,
 },
 
 "idle_inhibitor": {

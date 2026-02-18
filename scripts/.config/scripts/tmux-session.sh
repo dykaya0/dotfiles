@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DIRS=(
     "$HOME/projects/personal"
@@ -22,15 +22,13 @@ fi
 
 selected_name=$(basename "$selected" | sed 's/[^a-zA-Z0-9_-]/_/g')
 
-if ! tmux has-session -t "$selected_name"; then
+if ! tmux has-session -t "$selected_name" &>/dev/null; then
     tmux new-session -ds "$selected_name" -c "$selected"
     tmux select-window -t "$selected_name:1"
 fi
 
 if [[ -z $TMUX ]]; then
-    # hyprctl dispatch tagwindow +tmux
     tmux attach -t "$selected_name"
 else
-    # hyprctl dispatch tagwindow +tmux
     tmux switch-client -t "$selected_name"
 fi
