@@ -5,16 +5,18 @@
         "$HOME/.config/waybar/ModulesCustom"
     ],
     "layer": "bottom",
-    "output": ["DP-2"],
     "exclusive": true,
     "passthrough": false,
     "position": "top",
     "spacing": 3,
     "fixed-center": true,
     "ipc": true,
-    "margin-top": 0,
     "margin-left": 0,
+    "margin-bottom": 0,
+    "margin-top": 0,
     "margin-right": 0,
+    "on-sigusr1": "toggle",
+    "on-sigusr2": "reload",
 
     "modules-left": [
         "clock",

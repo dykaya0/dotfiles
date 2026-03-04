@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-FOLDER="$HOME/pictures/wallpapers"
-MONITOR="DP-2"
+FOLDER=$WALLPAPER_DIR
 
 MODE="$1"   
 
@@ -11,7 +10,7 @@ CHOICE=$(nsxiv -otb "$FOLDER"/*)
 [ -z "$CHOICE" ] && exit 0
 
 set_wallpaper() {
-    hyprctl hyprpaper wallpaper "$MONITOR, $CHOICE"
+    hyprctl hyprpaper wallpaper ", $CHOICE, cover"
 }
 
 set_matugen() {
@@ -27,7 +26,7 @@ case "$MODE" in
         set_wallpaper
         ;;
     *)
-        echo "Usage: $0 --only-wallpaper"
+        echo "Usage: $0 [--only-wallpaper]"
         exit 1
         ;;
 esac

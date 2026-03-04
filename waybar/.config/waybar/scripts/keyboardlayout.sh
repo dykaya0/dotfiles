@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-layout=$(hyprctl devices -j | jq -r '.keyboards[] | select(.name == "corsair-corsair-k60-rgb-pro-low-profile-mechanical-gaming-keyboard") | .active_keymap')
+KEYBOARDNAME=$KEYBOARD
+layout=$(hyprctl devices -j | jq -r ".keyboards[] | select(.name == \"$KEYBOARDNAME\") | .active_keymap")
 
 isReady() {
     if [[ -z "$layout" ]]; then

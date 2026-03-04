@@ -14,7 +14,7 @@ getStatus() {
     CONNECTION_OUTPUT=$(obs-cmd info 2>&1)
 
     if grep -Eqi "error|connection refused" <<<"$CONNECTION_OUTPUT"; then
-        echo "failed"
+        echo "Error: \$SOURCE is invalid or obs websocket is not working"
         exit 1
     fi
 

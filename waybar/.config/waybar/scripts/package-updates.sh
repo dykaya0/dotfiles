@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+updates_dir="${XDG_CACHE_HOME:-$HOME/.cache}/package_updates"
+mkdir -p "$updates_dir"
+
+updates_file="$updates_dir/$(date +%Y-%m-%d)"
+
 isReady() {
     if ! command -v paru >/dev/null 2>&1 || ! command -v ghostty >/dev/null 2>&1; then
         notify-send "paru or ghostty is not installed"
@@ -8,38 +13,50 @@ isReady() {
 }
 
 check() {
-    tmpfile=$(mktemp)
+    if [ ! -f "$updates_file" ];then
+        {
+            checkupdates 2>/dev/null
+            paru -Qu 2>/dev/null
+        } | sort -u > "$updates_file"
+    fi
+}
 
-    # Get repo updates
-    checkupdates 2>/dev/null > "$tmpfile"
+recheck() {
+    rm -f "$updates_file"
 
-    # Get AUR updates
-    paru -Qu 2>/dev/null >> "$tmpfile"
+    check
+}
 
-    updates=$(cat "$tmpfile")
-    count=$(wc -l < "$tmpfile")
+status() {
+    if [ -f "$updates_file" ];then
+        updates=$(cat "$updates_file")
+        count=$(wc -l < "$updates_file")
+        
+        if [ "$count" -eq 0 ]; then
+            jq -cn '{"text":"","tooltip":"System is up to date"}'
 
-    rm -f "$tmpfile"
+        elif [ "$count" -lt 15 ]; then
+            jq -cn --arg u "$updates" --arg c "$count" \
+                '{"text":" \($c)","class":"low","tooltip":$u}'
 
-    if [ "$count" -eq 0 ]; then
-        jq -cn '{"text":"","tooltip":"System is up to date"}'
+        elif [ "$count" -lt 50 ]; then
+            jq -cn --arg u "$updates" --arg c "$count" \
+                '{"text":" \($c)","class":"mid","tooltip":$u}'
 
-    elif [ "$count" -lt 15 ]; then
-        jq -cn --arg u "$updates" --arg c "$count" \
-            '{"text":" \($c)","class":"low","tooltip":$u}'
-
-    elif [ "$count" -lt 50 ]; then
-        jq -cn --arg u "$updates" --arg c "$count" \
-            '{"text":" \($c)","class":"mid","tooltip":$u}'
-
+        else
+            jq -cn --arg u "$updates" --arg c "$count" \
+                '{"text":" \($c)","class":"high","tooltip":$u}'
+        fi
     else
-        jq -cn --arg u "$updates" --arg c "$count" \
-            '{"text":" \($c)","class":"high","tooltip":$u}'
+        recheck
+        jq -cn '{"text":"X","tooltip":"Error: on waybar/scripts/package-updates.sh"}'
     fi
 }
 
 update() {
     ghostty -e paru -Syu --noconfirm
+
+    recheck
 }
 
 

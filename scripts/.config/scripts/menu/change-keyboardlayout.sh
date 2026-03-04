@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-KEYBOARDNAME=corsair-corsair-k60-rgb-pro-low-profile-mechanical-gaming-keyboard
+KEYBOARDNAME=$KEYBOARD
 hyprctl switchxkblayout "$KEYBOARDNAME" next
 layout=$(hyprctl devices -j | jq -r ".keyboards[] | select(.name == \"$KEYBOARDNAME\") | .active_keymap")
 

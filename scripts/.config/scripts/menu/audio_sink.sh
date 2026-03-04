@@ -19,3 +19,6 @@ pactl load-module module-virtual-source source_name=VirtualMic master=ObsMonitor
 
 # Step 4 - Start OBS Studio
 obs &
+
+# Step 5 - Waybar refresh for obs module
+$XDG_CONFIG_HOME/scripts/waybar_refresh.sh

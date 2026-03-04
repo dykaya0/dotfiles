@@ -7,7 +7,7 @@ vim.opt.cursorline = true     -- highlight the current line
 vim.opt.wrap = false          -- display lines as one long line
 vim.opt.scrolloff = 10        -- minimal number of screen lines to keep above and below the cursor
 vim.opt.sidescrolloff = 8     -- minimal number of screen columns on the side of the cursor
-vim.o.showtabline = 0         -- never show tabs
+vim.o.showtabline = 1         -- Show tab line(or buffers with mini-tabline plugin)
 
 -- Indentation
 vim.opt.tabstop = 4        -- Tab width
@@ -51,5 +51,21 @@ vim.opt.fileencoding = "UTF-8"                    -- the encoding written to a f
 vim.o.breakindent = true                          -- Enable break indent
 vim.o.splitright = true                           -- Open new split on right
 vim.o.splitbelow = true                           -- Open new split on below
--- Cursor Settings
--- vim.opt.guicursor =	"n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+-- Diagnostics
+local diagnostics_signs = {
+    Error = "",
+    Warn = "",
+    Hint = "",
+    Info = "",
+}
+
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = diagnostics_signs.Error,
+            [vim.diagnostic.severity.WARN] = diagnostics_signs.Warn,
+            [vim.diagnostic.severity.HINT] = diagnostics_signs.Hint,
+            [vim.diagnostic.severity.INFO] = diagnostics_signs.Info,
+        },
+    },
+})

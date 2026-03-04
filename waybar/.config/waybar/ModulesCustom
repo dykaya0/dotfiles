@@ -12,7 +12,7 @@
 "custom/obs-audio": {
   "exec-if": "~/.config/scripts/obs-widget.sh isReady",
   "exec": "~/.config/scripts/obs-widget.sh",
-  "interval": 59,
+  "interval": "once",
   "format": "{} OBS",
   "return-type": "json",
   "on-click": "~/.config/scripts/obs-widget.sh toggleStatus"
@@ -35,11 +35,12 @@
 
 "custom/packages": {
   "exec-if": "~/.config/waybar/scripts/package-updates.sh isReady",
-  "exec": "~/.config/waybar/scripts/package-updates.sh",
-  "interval": "once",
+  "exec": "~/.config/waybar/scripts/package-updates.sh status",
+  "interval": 60,
   "return-type": "json",
   "tooltip": true,
-  "on-click": "~/.config/waybar/scripts/package-updates.sh update"
+  "on-click": "~/.config/waybar/scripts/package-updates.sh update",
+  "on-click-right": "~/.config/waybar/scripts/package-updates.sh recheck"
 },
 
 "custom/separator#line": {

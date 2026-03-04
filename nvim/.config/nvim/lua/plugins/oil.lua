@@ -32,12 +32,12 @@ return {
                 },
             },
             float = {
-                padding = 4,
+                padding = 2,
                 max_width = 0.7,
                 max_height = 0.7,
             },
             view_options = {
-                show_hidden = false,
+                show_hidden = true,
             },
         })
     end,

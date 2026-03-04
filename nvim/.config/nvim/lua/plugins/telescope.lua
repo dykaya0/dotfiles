@@ -33,18 +33,8 @@ return {
                 },
 
                 buffers = {
-                    initial_mode = "normal",
+                    initial_mode = "insert",
                     sort_lastused = true,
-
-                    -- sort_mru = true,
-                    mappings = {
-                        n = {
-
-                            ["d"] = actions.delete_buffer,
-
-                            ["l"] = actions.select_default,
-                        },
-                    },
                 },
             },
             live_grep = {
@@ -74,35 +64,34 @@ return {
         pcall(require("telescope").load_extension, "fzf")
         pcall(require("telescope").load_extension, "ui-select")
 
-        vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
+        vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
         vim.keymap.set("n", "<leader>sm", builtin.marks, { desc = "[S]earch [M]arks" })
+        vim.keymap.set("n", "<leader>rg", builtin.registers, { desc = "[S]earch [R]egisters" })
         vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
         vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search [G]it [C]ommits" })
-        vim.keymap.set("n", "<leader>gC", builtin.git_bcommits, { desc = "Search [G]it [C]ommits in current buffer" })
         vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Search [G]it [B]ranches" })
         vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Search [G]it [S]tatus (diff view)" })
         vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
         vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
         vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-        vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-        vim.keymap.set("n", "<leader>sds", function()
-            builtin.lsp_document_symbols({
-                symbols = { "Class", "Function", "Method", "Constructor", "Interface", "Module", "Property" },
-            })
-        end, { desc = "[S]each LSP document [S]ymbols" })
 
-        vim.keymap.set("n", "<leader>s/", function()
+        vim.keymap.set("n", "<leader>/", function()
             builtin.live_grep({
-
                 grep_open_files = true,
                 prompt_title = "Live Grep in Open Files",
             })
         end, { desc = "[S]earch [/] in Open Files" })
-        vim.keymap.set("n", "<leader>/", function()
-            -- You can pass additional configuration to telescope to change theme, layout, etc.
-            builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-                previewer = false,
-            }))
-        end, { desc = "[/] Fuzzily search in current buffer" })
+
+        vim.keymap.set("n", "grr", builtin.lsp_references, { desc = "List references for the word under the cursor" })
+        vim.keymap.set("n", "<leader>d", builtin.diagnostics,
+            { desc = "List diagnostics for all open buffers" })
+
+        vim.keymap.set("n", "<leader>D", function()
+            builtin.diagnostics({
+                bufnr = 0,
+                prompt_title = "Diagnostics for the current buffer",
+            })
+        end, { desc = "List diagnostics for the current buffer" })
     end,
 }

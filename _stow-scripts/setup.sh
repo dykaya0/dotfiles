@@ -2,7 +2,7 @@
 
 STOW_SCRIPTS_DIR="$HOME/dotfiles/_stow-scripts"
 cd $STOW_SCRIPTS_DIR || {
-    color_echo red "Error: Cannot cd into STOW_SCRIPTS_DIR"
+    color_echo red "Error: Cannot cd into \$STOW_SCRIPTS_DIR"
     exit 1
 }
 
@@ -22,10 +22,6 @@ source helpers.sh
 clear
 print_logo
 
-# Update the system first
-color_echo green "Updating system..."
-sudo pacman -Syu --noconfirm
-
 install-packages
 
 dotfiles-setup
@@ -33,7 +29,7 @@ dotfiles-setup
 change-shell
 
 print_defaults
-color_echo green "Reloading config..."
+
 reload-config
 
 color_echo green "Setup complete!"

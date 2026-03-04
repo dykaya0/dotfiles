@@ -5,7 +5,7 @@ source utils.sh
 change-shell() {
     if ! command -v zsh &>/dev/null; then
         color_echo red "zsh is not installed."
-        return 1
+        exit 1
     fi
 
     local current_shell
@@ -16,13 +16,12 @@ change-shell() {
 
     if [[ "$current_shell" == "$zsh_path" ]]; then
         color_echo magenta "Shell is already set to zsh."
-        return 0
     fi
 
     color_echo magenta "Changing shell to zsh..."
     chsh -s "$zsh_path" || {
         color_echo red "Failed to change shell."
-        return 1
+        exit 1
     }
 
     echo "Shell changed to zsh. Log out and back in to apply."
@@ -33,18 +32,18 @@ dotfiles-setup() {
 
 if ! is_installed stow; then
     color_echo red "Install stow first"
-    return 1
+    exit 1
 fi
 
 cd "$DOTFILES_DIR" || {
     color_echo red "Dotfiles directory not found"
-    return 1
+    exit 1
 }
 
 color_echo magenta "Preview of stow changes:"
 if ! stow -nvR --dotfiles [a-z]*/; then
     color_echo red "Stow preview failed."
-    return 1
+    exit 1
 fi
 
 read -rp "Do you want to proceed stow(will recreate existing symlinks)? [y/N]: " run_stow
@@ -52,13 +51,12 @@ read -rp "Do you want to proceed stow(will recreate existing symlinks)? [y/N]: "
 if [[ "$run_stow" =~ ^[Yy]$ ]]; then
     color_echo yellow "Stow in progress..."
     stow -vR --dotfiles [a-z]*/ || {
-        echo "Stow failed."
-        return 1
+        color_echo red "Stow failed."
+        exit 1
     }
     color_echo green "Dotfiles symlinked succesfully."
 else
     color_echo red "Stow canceled."
-    return 0
 fi
 
 }
@@ -66,7 +64,7 @@ fi
 install-packages() {
 if [ ! -f "packages.conf" ]; then
     color_echo red "Error: packages.conf not found!"
-    return 1
+    exit 1
 fi
 
 source packages.conf
@@ -108,7 +106,7 @@ install_packages "${FONTS[@]}"
 fc-cache -v &>/dev/null
 
 # Enable services
-color_echo blue "Configuring services..."
+color_echo blue "Configuring system services..."
 for service in "${SERVICES[@]}"; do
     if ! systemctl is-enabled "$service" &> /dev/null; then
         color_echo green "Enabling $service..."

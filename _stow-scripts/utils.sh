@@ -52,13 +52,14 @@ print_defaults() {
     sed -n '10,20p' $XDG_CONFIG_HOME/hypr/configs/variables.conf
     echo -e "\t.\n\t.\n\t."
 
-    color_echo magenta "$XDG_CONFIG_HOME/waybar/config.jsonc =>"
+    color_echo magenta "$HOME/.zprofile =>"
     echo -e "\t.\n\t.\n\t."
-    sed -n '8p' $XDG_CONFIG_HOME/waybar/config.jsonc
+    cat $HOME/.zprofile
     echo -e "\t.\n\t.\n\t."
 }
 
 reload-config() {
+    color_echo green "Reloading config..."
     hyprctl reload &>/dev/null
 }
 

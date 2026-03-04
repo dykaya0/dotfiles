@@ -23,9 +23,6 @@ local opts = { noremap = true, silent = true }
 -- CTRL-S (Insert mode) is mapped to vim.lsp.buf.signature_help()
 -- "an" and "in" (Visual and Operator-pending mode) are mapped to outer and inner incremental selections, respectively, using vim.lsp.buf.selection_range()
 
--- Restart Lsp
--- vim.keymap.set("n", "<leader>rl", "<cmd>lsp restart<CR>", { desc = "Restart Lsp" })
-
 -- Select all file
 vim.keymap.set("n", "vga", "ggVG", opts)
 
@@ -41,7 +38,6 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- clear highlights
 vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 
--- save file without auto-formatting
 vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({}) <CR>", opts)
 
 -- Center screen when vertical scroll and find
@@ -49,13 +45,13 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
--- Increment/decrement numbers
-vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
-vim.keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
 
 -- Splits
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", opts) -- vertical split
 vim.keymap.set("n", "<leader>ss", ":close<CR>", opts)  -- close current split window
+
+-- Buffers
+vim.keymap.set({ "n", "v" }, "<leader>b", ":bdelete<CR>", opts)
 
 --- Navigate
 vim.keymap.set("n", "<leader>h", ":wincmd h<CR>", opts)
@@ -76,8 +72,11 @@ vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
 -- Move line up and down
-vim.keymap.set({ "n", "v" }, "<A-j>", ":m .+1<CR>==", opts) -- Move line down
-vim.keymap.set({ "n", "v" }, "<A-k>", ":m .-2<CR>==", opts) -- Move line up
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", opts)     -- Move line down
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", opts)     -- Move line up
+
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts) -- Move selection down
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts) -- Move selection up
 
 -- Better J Behaviour
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
