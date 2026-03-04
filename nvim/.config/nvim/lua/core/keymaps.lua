@@ -79,7 +79,7 @@ vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts) -- Move selection down
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts) -- Move selection up
 
 -- Better J Behaviour
-vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
+vim.keymap.set({ "n", "v" }, "J", "mzJ`z", opts) -- Join lines and keep cursor position
 
 -- Paste from unnamed register (only yanked)
 vim.keymap.set({ "n", "v" }, "<leader>p", '"0p', opts)

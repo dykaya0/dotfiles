@@ -45,17 +45,10 @@ print_defaults() {
         color_echo red "\$XDG_CONFIG_HOME is null or empty"
     fi
 
-    color_echo blue "Defaults: "
+    color_echo magenta "Defaults: "
 
-    color_echo magenta "$XDG_CONFIG_HOME/hypr/configs/variables.conf =>"
-    echo -e "\t.\n\t.\n\t."
-    sed -n '10,20p' $XDG_CONFIG_HOME/hypr/configs/variables.conf
-    echo -e "\t.\n\t.\n\t."
-
-    color_echo magenta "$HOME/.zprofile =>"
-    echo -e "\t.\n\t.\n\t."
-    cat $HOME/.zprofile
-    echo -e "\t.\n\t.\n\t."
+    command bat --paging=never $XDG_CONFIG_HOME/hypr/configs/variables.conf
+    command bat --paging=never $HOME/.zprofile
 }
 
 reload-config() {
