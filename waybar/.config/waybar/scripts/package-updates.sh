@@ -35,11 +35,11 @@ status() {
         if [ "$count" -eq 0 ]; then
             jq -cn '{"text":"","tooltip":"System is up to date"}'
 
-        elif [ "$count" -lt 15 ]; then
+        elif [ "$count" -lt 25 ]; then
             jq -cn --arg u "$updates" --arg c "$count" \
                 '{"text":" \($c)","class":"low","tooltip":$u}'
 
-        elif [ "$count" -lt 50 ]; then
+        elif [ "$count" -lt 80 ]; then
             jq -cn --arg u "$updates" --arg c "$count" \
                 '{"text":" \($c)","class":"mid","tooltip":$u}'
 
@@ -54,7 +54,7 @@ status() {
 }
 
 update() {
-    ghostty -e paru -Syu --noconfirm
+    kitty -e paru -Syu --noconfirm
 
     recheck
 }

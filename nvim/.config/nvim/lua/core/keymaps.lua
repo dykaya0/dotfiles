@@ -85,8 +85,7 @@ vim.keymap.set({ "n", "v" }, "J", "mzJ`z", opts) -- Join lines and keep cursor p
 vim.keymap.set({ "n", "v" }, "<leader>p", '"0p', opts)
 
 -- Paste from + register (system clipboard)
-vim.keymap.set("v", "<A-p>", '"+p', opts)
-vim.keymap.set("n", "<A-p>", '"+p', opts)
+vim.keymap.set({ "n", "v" }, "<A-p>", '"+p', opts)
 
 -- Delete character into the blackhole register
 vim.keymap.set({ "n", "v" }, "x", '"_x', opts)

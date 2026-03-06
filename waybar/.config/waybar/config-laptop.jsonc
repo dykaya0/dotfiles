@@ -26,7 +26,6 @@
         "backlight",
         "battery",
         "custom/separator#line",  
-        "custom/obs-audio",
         "custom/timer"
     ],
 

@@ -24,7 +24,7 @@ change-shell() {
         exit 1
     }
 
-    echo "Shell changed to zsh. Log out and back in to apply."
+    color_echo green "Shell changed to zsh. Log out and back in to apply."
 }
 
 dotfiles-setup() {

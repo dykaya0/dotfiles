@@ -24,6 +24,7 @@
         "memory",
         "cpu",
         "custom/separator#line",  
+        "custom/obs-audio",
         "custom/timer"
     ],
 
