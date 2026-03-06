@@ -13,8 +13,8 @@ mkdir -p $SS_DIR
 export HYPRSHOT_DIR=$SS_DIR
 
 export WALLPAPER_DIR="$HOME/pictures/wallpapers"
-export KEYBOARD="corsair-corsair-k60-rgb-pro-low-profile-mechanical-gaming-keyboard"
-export MONITOR_OUTPUT="DP-2"
+export KEYBOARD="at-translated-set-2-keyboard"
+export MONITOR_OUTPUT="eDP-1"
 
 export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30% --preview='bat -p --color=always {}'"
 export FZF_CTRL_R_OPTS="--style minimal --color 16 --info inline --no-sort --no-preview"
