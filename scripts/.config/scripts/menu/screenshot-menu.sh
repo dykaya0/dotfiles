@@ -1,22 +1,27 @@
 #!/usr/bin/env bash
 
 Region() {
+    sleep 0.3
     hyprshot --freeze -m region
 }
 
 Monitor() {
+    sleep 0.3
     hyprshot --freeze -m output
 }
 
 Window() {
+    sleep 0.3
     hyprshot --freeze -m window
 }
 
 Region_clipboard() {
+    sleep 0.3
     hyprshot --clipboard-only --freeze -m region
 }
 
 Region_preview() {
+    sleep 0.3
     TMP_FILENAME=$(date +%Y-%m-%dT%H-%M-%S)
     TMP_DIR=$XDG_CACHE_HOME/screenshots
     mkdir -p $TMP_DIR

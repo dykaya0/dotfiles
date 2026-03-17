@@ -40,7 +40,7 @@
   "return-type": "json",
   "tooltip": true,
   "on-click": "~/.config/waybar/scripts/package-updates.sh update",
-  "on-click-right": "~/.config/waybar/scripts/package-updates.sh recheck"
+  "on-click-right": "~/.config/waybar/scripts/package-updates.sh check"
 },
 
 "custom/separator#line": {

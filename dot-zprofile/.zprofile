@@ -20,5 +20,7 @@ export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30
 export FZF_CTRL_R_OPTS="--style minimal --color 16 --info inline --no-sort --no-preview"
 export OBS_WEBSOCKET_URL=obsws://localhost:9911/0yimrTxB8dV5A7KY
 export GOPATH="$XDG_DATA_HOME/go"
+
 export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 export PATH=$HOME/.dotnet/tools:$PATH
+export PATH="$HOME/.local/bin:$PATH"

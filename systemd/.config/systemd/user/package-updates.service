@@ -3,4 +3,4 @@ Description=Check Package Updates
 
 [Service]
 Type=oneshot
-ExecStart=%h/.config/waybar/scripts/package-updates.sh recheck
+ExecStart=%h/.config/waybar/scripts/package-updates.sh check

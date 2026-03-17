@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-updates_dir="${XDG_CACHE_HOME:-$HOME/.cache}/package_updates"
-mkdir -p "$updates_dir"
-
-updates_file="$updates_dir/$(date +%Y-%m-%d)"
+updates_file="${XDG_RUNTIME_DIR:-$HOME/.cache}/package_updates"
 
 isReady() {
     if ! command -v paru >/dev/null 2>&1 || ! command -v ghostty >/dev/null 2>&1; then
@@ -13,18 +10,10 @@ isReady() {
 }
 
 check() {
-    if [ ! -f "$updates_file" ];then
-        {
-            checkupdates 2>/dev/null
-            paru -Qu 2>/dev/null
-        } | sort -u > "$updates_file"
-    fi
-}
-
-recheck() {
-    rm -f "$updates_file"
-
-    check
+    {
+        checkupdates 2>/dev/null
+        paru -Qu 2>/dev/null
+    } | sort -u > "$updates_file"
 }
 
 status() {
@@ -48,7 +37,7 @@ status() {
                 '{"text":" \($c)","class":"high","tooltip":$u}'
         fi
     else
-        recheck
+        check
         jq -cn '{"text":"X","tooltip":"Error: on waybar/scripts/package-updates.sh"}'
     fi
 }
@@ -56,7 +45,7 @@ status() {
 update() {
     kitty -e paru -Syu --noconfirm
 
-    recheck
+    check
 }
 
 

@@ -26,8 +26,6 @@ install-packages
 
 dotfiles-setup
 
-change-shell
-
 print_defaults
 
 reload-config
