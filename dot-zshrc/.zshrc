@@ -67,8 +67,7 @@ alias cd="z"
 alias cat="bat"
 alias lsa="eza -a1"
 alias ls="eza -1"
-alias tms="$XDG_CONFIG_HOME/scripts/tmux-session.sh"
-alias theme="$XDG_CONFIG_HOME/scripts/change-theme.sh"
+alias kyb="systemctl --user restart openrgb.service"
 
 alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" --exclude "go" . | fzf'
 alias fzd='fd --type d --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'

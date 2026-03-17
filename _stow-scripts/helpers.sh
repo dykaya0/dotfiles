@@ -2,31 +2,6 @@
 
 source utils.sh
 
-change-shell() {
-    if ! command -v zsh &>/dev/null; then
-        color_echo red "zsh is not installed."
-        exit 1
-    fi
-
-    local current_shell
-    current_shell="$(getent passwd "$(id -u)" | cut -d: -f7)"
-
-    local zsh_path
-    zsh_path="$(command -v zsh)"
-
-    if [[ "$current_shell" == "$zsh_path" ]]; then
-        color_echo magenta "Shell is already set to zsh."
-    fi
-
-    color_echo magenta "Changing shell to zsh..."
-    chsh -s "$zsh_path" || {
-        color_echo red "Failed to change shell."
-        exit 1
-    }
-
-    color_echo green "Shell changed to zsh. Log out and back in to apply."
-}
-
 dotfiles-setup() {
     DOTFILES_DIR="$HOME/dotfiles"
 
@@ -103,7 +78,7 @@ fi
 color_echo yellow "Installing fonts..."
 install_packages "${FONTS[@]}"
 
-fc-cache -v &>/dev/null
+fc-cache &>/dev/null
 
 # Enable services
 color_echo blue "Configuring system services..."

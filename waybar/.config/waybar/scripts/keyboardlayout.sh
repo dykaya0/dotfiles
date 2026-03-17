@@ -5,7 +5,7 @@ layout=$(hyprctl devices -j | jq -r ".keyboards[] | select(.name == \"$KEYBOARDN
 
 isReady() {
     if [[ -z "$layout" ]]; then
-        notify-send "Keyboard layout couldn't fetched in waybar/scripts/keyboard.sh script"
+        notify-send "Error: Keyboard layout couldn't fetched in waybar/scripts/keyboard.sh script $layout"
         exit 1
     fi
 }

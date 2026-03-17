@@ -14,13 +14,21 @@ vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
 
 vim.api.nvim_create_autocmd("InsertEnter", {
     callback = function()
-        vim.diagnostic.enable(false)
+        vim.diagnostic.config({
+            virtual_text = false,
+            signs = false,
+            underline = false,
+        })
     end,
 })
 
 vim.api.nvim_create_autocmd("InsertLeave", {
     callback = function()
-        vim.diagnostic.enable(true)
+        vim.diagnostic.config({
+            virtual_text = true,
+            signs = true,
+            underline = true,
+        })
     end,
 })
 
