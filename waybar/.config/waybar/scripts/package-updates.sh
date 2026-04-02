@@ -44,7 +44,6 @@ status() {
 
 update() {
     kitty -e paru -Syu --noconfirm
-
     check
 }
 
