@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+background = #101417
+foreground = #e0e3e8
+cursor-color = #e0e3e8
+cursor-text = #c1c7ce
+selection-background = #b8c8d9
+selection-foreground = #22323f
+=======
+background = #0e1513
+foreground = #dde4e1
+cursor-color = #dde4e1
+cursor-text = #bec9c6
+selection-background = #b1ccc7
+selection-foreground = #1c3531
+>>>>>>> master

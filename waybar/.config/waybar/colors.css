@@ -9,7 +9,7 @@
 
     @define-color error_container #93000a;
 
-    @define-color inverse_on_surface #2d3135;
+    @define-color inverse_on_surface #2b3230;
 
     @define-color inverse_primary #29638a;
 
@@ -84,8 +84,7 @@
     @define-color surface_container_high #262a2e;
 
     @define-color surface_container_highest #313539;
-
-    @define-color surface_container_low #181c20;
+    @define-color surface_container_low #161d1c;
 
     @define-color surface_container_lowest #0b0f12;
 

@@ -36,6 +36,10 @@ return {
                     initial_mode = "insert",
                     sort_lastused = true,
                 },
+
+                man_pages = {
+                    sections = { "ALL" },
+                },
             },
             live_grep = {
                 file_ignore_patterns = { "node_modules", ".git", ".venv" },
@@ -66,15 +70,15 @@ return {
 
 
         vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
-        vim.keymap.set("n", "<leader>sm", builtin.marks, { desc = "[S]earch [M]arks" })
-        vim.keymap.set("n", "<leader>rg", builtin.registers, { desc = "[S]earch [R]egisters" })
-        vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
-        vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search [G]it [C]ommits" })
         vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Search [G]it [B]ranches" })
+        vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search [G]it [C]ommits" })
+        vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
         vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Search [G]it [S]tatus (diff view)" })
+        vim.keymap.set("n", "<leader>rg", builtin.registers, { desc = "[S]earch [R]egisters" })
         vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-        vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
         vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+        vim.keymap.set("n", "<leader>sm", builtin.man_pages, { desc = "[S]earch [M]an pages" })
+        vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 
         vim.keymap.set("n", "<leader>/", function()
             builtin.live_grep({

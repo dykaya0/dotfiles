@@ -12,7 +12,7 @@
 "custom/obs-audio": {
   "exec-if": "~/.config/scripts/obs-widget.sh isReady",
   "exec": "~/.config/scripts/obs-widget.sh",
-  "interval": "once",
+  "interval": 1,
   "format": "{} OBS",
   "return-type": "json",
   "on-click": "~/.config/scripts/obs-widget.sh toggleStatus"
