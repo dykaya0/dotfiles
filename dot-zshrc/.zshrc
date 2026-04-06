@@ -26,6 +26,7 @@ source <(fzf --zsh)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
 eval "$(zoxide init zsh)"
+
 _fzf_compgen_path() {
   fd --hidden --follow \
     --exclude "/.cache" \
@@ -51,19 +52,12 @@ SAVEHIST=1000000
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
 HISTCONTROL=ignoreboth
 
-#Change the current working directory when exiting Yazi.
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
-
 
 # Alias
 alias n="nvim"
+alias zedit='nvim "$(zoxide query -i)"'
 alias cd="z"
+alias zd='cd "$(zoxide query -i)"'
 alias cat="bat"
 alias lsa="eza -a1"
 alias ls="eza -1"
