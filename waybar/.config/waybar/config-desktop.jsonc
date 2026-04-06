@@ -29,7 +29,7 @@
     ],
 
     "modules-center": [
-        "hyprland/workspaces#roman",
+        "hyprland/workspaces#kanji",
         "custom/separator#line",
         "idle_inhibitor",
         "custom/packages"

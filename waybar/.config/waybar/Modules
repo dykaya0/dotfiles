@@ -93,7 +93,6 @@
         "deactivated": ""
     },
     "start-activated": false,
-    "timeout": 90
 },
 "disk": {
     "interval": 30,

@@ -28,6 +28,7 @@ return {
             dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
             dashboard.button("f", "󰍉  Find file", ":Telescope find_files<CR>"),
             dashboard.button("g", "  Grep pwd", ":Telescope live_grep<CR>"),
+            dashboard.button("m", "󰈙  Man pages", ":Telescope man_pages<CR>"),
             dashboard.button("r", "󱝏  MRU files", ":Telescope oldfiles<CR>"),
             dashboard.button("o", "  Browse pwd", ":edit .<CR>"),
             dashboard.button("c", "  Browse $XDG_CONFIG_HOME", ":cd $XDG_CONFIG_HOME | edit .<CR>"),
