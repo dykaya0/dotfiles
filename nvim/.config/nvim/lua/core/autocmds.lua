@@ -34,6 +34,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     end,
 })
 
+
+vim.api.nvim_create_autocmd('CmdwinEnter', {
+  command = 'startinsert',
+})
+
 vim.api.nvim_create_autocmd('FileType', {
     desc = "Autostart treesitter",
     pattern = { '<filetype>' },
