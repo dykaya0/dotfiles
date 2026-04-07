@@ -1,0 +1,10 @@
+[Unit]
+Description=Run service every x minutes
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=30m
+Persistent=false
+
+[Install]
+WantedBy=timers.target
