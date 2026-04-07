@@ -62,6 +62,7 @@ alias cat="bat"
 alias lsa="eza -a1"
 alias ls="eza -1"
 alias kyb="systemctl --user restart openrgb.service"
+alias nb="newsboat"
 
 alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" --exclude "go" . | fzf'
 alias fzd='fd --type d --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'
