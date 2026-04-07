@@ -1,4 +1,5 @@
 export EDITOR="nvim"
+export TERMINAL="ghostty"
 export BROWSER="librewolf"
 export BROWSER2="chromium"
 export MANPAGER="nvim +Man!"
