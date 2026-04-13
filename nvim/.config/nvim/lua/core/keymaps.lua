@@ -40,6 +40,8 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 
 vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({}) <CR>", opts)
 
+vim.keymap.set("n", "<leader>x", "<cmd>%!bash<CR>", opts)
+
 -- Center screen when vertical scroll and find
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
