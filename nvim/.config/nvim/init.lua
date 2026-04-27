@@ -3,6 +3,8 @@ require('core.keymaps')
 require('core.autocmds')
 require('core.lspconfig')
 
+require('vim._core.ui2').enable()
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"

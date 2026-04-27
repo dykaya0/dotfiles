@@ -51,6 +51,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Splits
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", opts) -- vertical split
 vim.keymap.set("n", "<leader>ss", ":close<CR>", opts)  -- close current split window
+vim.keymap.set("n", "<leader>sr", ":wincmd R<CR>", opts)
 
 -- Buffers
 vim.keymap.set({ "n", "v" }, "<leader>b", ":bdelete<CR>", opts)

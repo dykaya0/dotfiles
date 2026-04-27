@@ -20,7 +20,7 @@ vim.opt.autoindent = true  -- copy indent from current line when starting new on
 -- Search Settings
 vim.opt.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
 vim.opt.smartcase = true  -- smart case
-vim.opt.hlsearch = false  -- Set highlight on search
+vim.opt.hlsearch = true   -- Set highlight on search
 vim.opt.incsearch = true  -- Show matches as you type
 
 -- Visual Settings

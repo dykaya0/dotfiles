@@ -25,3 +25,5 @@ export GOPATH="$XDG_DATA_HOME/go"
 export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 export PATH=$HOME/.dotnet/tools:$PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"

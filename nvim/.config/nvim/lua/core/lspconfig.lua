@@ -5,6 +5,7 @@ vim.lsp.enable({
     "clangd",
     "jsonls",
     "omnisharp",
+    "rust-analyzer",
 }, true)
 
 vim.api.nvim_create_autocmd('LspAttach', {

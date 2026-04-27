@@ -52,6 +52,15 @@ SAVEHIST=1000000
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
 HISTCONTROL=ignoreboth
 
+open_git_nvim() {
+  local dir="${1:-.}"
+  if [ -d "$dir/.git" ]; then
+      cd "$(realpath "$dir")"
+      nvim -c "Git"
+  else
+      printf '\033[31m%s\033[0m\n' "not a git directory"
+  fi
+}
 
 # Alias
 alias n="nvim"
@@ -63,7 +72,8 @@ alias lsa="eza -a1"
 alias ls="eza -1"
 alias kyb="systemctl --user restart openrgb.service"
 alias nb="tms ~/projects/meta/newsboat"
-alias cmd="nvim commandbuffer"
+alias buf="nvim commandbuffer"
+alias gitv='open_git_nvim'
 
 alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" --exclude "go" . | fzf'
 alias fzd='fd --type d --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'
