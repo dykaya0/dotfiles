@@ -26,6 +26,14 @@ local opts = { noremap = true, silent = true }
 -- Select all file
 vim.keymap.set("n", "vga", "ggVG", opts)
 
+
+-- Copy file path with line number into clipboard
+vim.keymap.set('n', '<leader>n', function()
+    local s = vim.fn.expand('%:p') .. ':' .. vim.fn.line('.')
+    vim.fn.setreg('+', s)
+    print('Copied: ' .. s)
+end, { desc = 'Copy path:line' })
+
 -- Open oil.nvim file explorer as floating window
 vim.keymap.set("n", "`", function()
     require("oil").toggle_float()
