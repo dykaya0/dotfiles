@@ -3,7 +3,7 @@ return {
         "rust-analyzer"
     },
     root_markers = {
-        'cargo.toml',
+        'Cargo.toml',
     },
     filetypes = {
         "rust",
