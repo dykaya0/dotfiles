@@ -1,0 +1,12 @@
+require("variables")
+
+hl.on("hyprland.start", function () 
+  hl.exec_cmd("waybar -c " .. waybarConfig)
+  hl.exec_cmd("hyprpaper")
+  hl.exec_cmd("hypridle")
+  hl.exec_cmd(os.getenv("XDG_CONFIG_HOME").. "/hypr/scripts/autostart-other.sh")
+  hl.exec_cmd(os.getenv("XDG_CONFIG_HOME").. "/hypr/scripts/dependency-check.sh")
+  hl.exec_cmd("wl-paste --type text --watch cliphist store")
+  hl.exec_cmd("wl-paste --type image --watch cliphist store")
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+end)

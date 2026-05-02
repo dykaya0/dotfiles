@@ -74,6 +74,7 @@ alias kyb="systemctl --user restart openrgb.service"
 alias nb="tms ~/projects/meta/newsboat"
 alias buf="nvim commandbuffer"
 alias gitv='open_git_nvim'
+alias git-commitandpush="git add .;git commit -m '$(date -u)';git push"
 
 alias fzf='fd --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" --exclude "go" . | fzf'
 alias fzd='fd --type d --hidden --follow --exclude ".git" --exclude ".cache" --exclude ".steam" . | fzf'
