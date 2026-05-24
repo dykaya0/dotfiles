@@ -23,6 +23,10 @@ local opts = { noremap = true, silent = true }
 -- CTRL-S (Insert mode) is mapped to vim.lsp.buf.signature_help()
 -- "an" and "in" (Visual and Operator-pending mode) are mapped to outer and inner incremental selections, respectively, using vim.lsp.buf.selection_range()
 
+vim.keymap.set("n", "<leader><Tab>", function()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = 'Toggle diagnostics' })
+
 -- Select all file
 vim.keymap.set("n", "vga", "ggVG", opts)
 

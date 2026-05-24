@@ -1,4 +1,3 @@
-require("variables")
 -- Workspace Rules
 hl.workspace_rule({ workspace = "special:terminalScratchpad", on_created_empty = terminal, default = true, persistent = true })
 hl.workspace_rule({ workspace = "1", monitor = mainMonitor, default = true, persistent = true })
@@ -8,27 +7,15 @@ hl.workspace_rule({ workspace = "4", monitor = mainMonitor, default = true, pers
 hl.workspace_rule({ workspace = "5", monitor = mainMonitor, default = true, persistent = true })
 hl.workspace_rule({ workspace = "6", monitor = secondMonitor, default = true, persistent = true })
 
-local activeOpacity = 0.6
-local inactiveOpacity = 0.5
-local fullscreenOpacity = 0.5
-
 hl.window_rule({
     name = "OnFullscreen",
     match = {
         fullscreen = true
     },
-    border_size = 10,
+    border_size = 4,
     border_color = "rgb(FF0000) rgb(880808)",
     rounding = 1
 })
-
--- hl.window_rule({
---   name = "TerminalScratchpadOpacity",
---   match = {
---     workspace = "special:terminalScratchpad"
---   },
---   opacity = "activeOpacity override inactiveOpacity override fullscreenOpacity override"
--- })
 
 local float_classes = table.concat({
     "org\\.pulseaudio\\.pavucontrol",
@@ -53,7 +40,6 @@ local bigger_float_classes = table.concat({
     "Nsxiv",
     "nm-connection-editor",
     "hyprland-share-picker",
-
 }, "|")
 hl.window_rule({
     name = "BiggerFloatingApps",
@@ -71,7 +57,7 @@ hl.window_rule({
         title = "special-emacs"
     },
     float = true,
-    size = { "monitor_w * 0.5", "monitor_h * 0.5" }
+    size = { "monitor_w * 0.5", "monitor_h * 0.5" },
     move = { "monitor_w * 0.5", "monitor_h * 0.5" }
 })
 

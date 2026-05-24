@@ -74,6 +74,10 @@
 (setq org-directory "~/org")
 (setq org-agenda-files (directory-files-recursively org-directory "\\.org$"))
 (setq org-log-done 'time)
+;; Enable syntax highlighting for Org source blocks
+(setq org-src-fontify-natively t)
+;; Ensure Org knows rust -> rust-mode
+(add-to-list 'org-src-lang-modes '("rust" . rust))
 (setq org-todo-keywords
       '((sequence "PROJ(p)" "LOOP(l)" "BACK(b)" "TODO(t)"
                   "STRT(s)" "HOLD(h)" "WAIT(w)" "IDEA(i)"
@@ -124,6 +128,7 @@
        ((daily today remove-match)
         (600 700 800 900 1000 1100 1200 1300 1400 1500 1600 1800 2000 2200)
         "......" "----------------")))
+
 (setq org-agenda-custom-commands
       '(
         ("v" "More comprehensive agenda view"
@@ -148,7 +153,9 @@
                 ((org-agenda-overriding-header "DONE (finished)")))
           (tags "TODO=\"KILL\""
                 ((org-agenda-overriding-header "KILL (canceled, abandoned)")))
-          ))
+          )
+         ((org-agenda-files (remove (concat org-directory "/content.org") org-agenda-files)))
+         )
         )
       )
 

@@ -1,9 +1,7 @@
 return {
-    "stevearc/oil.nvim",
-    ---@module 'oil'
-    ---@type oil.SetupOpts
+    'barrettruth/canola.nvim',
     opts = {},
-    -- Optional dependencies
+    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     config = function()
         require("oil").setup({
@@ -41,6 +39,4 @@ return {
             },
         })
     end,
-    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-    lazy = false,
 }
