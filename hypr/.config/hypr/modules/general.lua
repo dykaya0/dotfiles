@@ -53,6 +53,9 @@ hl.config({
 })
 
 -- Environment Variables
+hl.env("MONITOR_PROFILE", "HDMI-A-1,DP-2")
+hl.env("MONITOR_PRIMARY", "DP-2")
+
 hl.env("XCURSOR_SIZE", "18")
 hl.env("HYPRCURSOR_SIZE", "18")
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")

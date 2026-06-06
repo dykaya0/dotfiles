@@ -1,11 +1,14 @@
+local primaryMonitor = os.getenv("MONITOR_PRIMARY") or ""
 -- Workspace Rules
-hl.workspace_rule({ workspace = "special:terminalScratchpad", on_created_empty = terminal, default = true, persistent = true })
-hl.workspace_rule({ workspace = "1", monitor = mainMonitor, default = true, persistent = true })
-hl.workspace_rule({ workspace = "2", monitor = mainMonitor, default = true, persistent = true })
-hl.workspace_rule({ workspace = "3", monitor = mainMonitor, default = true, persistent = true })
-hl.workspace_rule({ workspace = "4", monitor = mainMonitor, default = true, persistent = true })
-hl.workspace_rule({ workspace = "5", monitor = mainMonitor, default = true, persistent = true })
-hl.workspace_rule({ workspace = "6", monitor = secondMonitor, default = true, persistent = true })
+hl.workspace_rule({ workspace = "special:terminalScratchpad", on_created_empty = terminal })
+hl.workspace_rule({ workspace = "name:browser", on_created_empty = browser })
+hl.workspace_rule({ workspace = "name:terminal", on_created_empty = terminal })
+hl.workspace_rule({ workspace = "name:emacs", on_created_empty = emacs })
+hl.workspace_rule({ workspace = "1", monitor = primaryMonitor })
+hl.workspace_rule({ workspace = "2", monitor = primaryMonitor })
+hl.workspace_rule({ workspace = "3", monitor = primaryMonitor })
+hl.workspace_rule({ workspace = "4", monitor = primaryMonitor })
+hl.workspace_rule({ workspace = "5", monitor = primaryMonitor })
 
 hl.window_rule({
     name = "OnFullscreen",
@@ -15,6 +18,22 @@ hl.window_rule({
     border_size = 4,
     border_color = "rgb(FF0000) rgb(880808)",
     rounding = 1
+})
+
+hl.window_rule({
+    name = "TransparentSpecialWorkspace",
+    match = {
+        workspace = "special:terminalScratchpad"
+    },
+    opacity = "0.6 override 0.5 override 0.4 override"
+})
+
+hl.window_rule({
+    name = "Named workspace has max one tiled window",
+    match = { workspace = "n[true]w[t1]" },
+    float = true,
+    center = true,
+    size = { "monitor_w * 0.6", "monitor_h * 0.8" }
 })
 
 local float_classes = table.concat({

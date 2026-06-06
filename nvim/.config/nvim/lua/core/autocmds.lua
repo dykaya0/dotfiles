@@ -1,38 +1,38 @@
 local augroup = vim.api.nvim_create_augroup("UserConfig", {})
 
-vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
-    desc = "Open diagnostic floating window on cursor hold",
-    callback = function()
-        local opts = {
-            focusable = false,
-            scope = 'cursor',
-            close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter' },
-        }
-        vim.diagnostic.open_float(nil, opts)
-    end,
-})
-
-vim.api.nvim_create_autocmd("InsertEnter", {
-    callback = function()
-        -- vim.diagnostic.enable(false)
-        vim.diagnostic.config({
-            virtual_text = false,
-            signs = false,
-            underline = false,
-        })
-    end,
-})
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-    callback = function()
-        -- vim.diagnostic.enable(true)
-        vim.diagnostic.config({
-            virtual_text = true,
-            signs = true,
-            underline = true,
-        })
-    end,
-})
+-- vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
+--     desc = "Open diagnostic floating window on cursor hold",
+--     callback = function()
+--         local opts = {
+--             focusable = false,
+--             scope = 'cursor',
+--             close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter' },
+--         }
+--         vim.diagnostic.open_float(nil, opts)
+--     end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("InsertEnter", {
+--     callback = function()
+--         -- vim.diagnostic.enable(false)
+--         vim.diagnostic.config({
+--             virtual_text = false,
+--             signs = false,
+--             underline = false,
+--         })
+--     end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--     callback = function()
+--         -- vim.diagnostic.enable(true)
+--         vim.diagnostic.config({
+--             virtual_text = true,
+--             signs = true,
+--             underline = true,
+--         })
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd('FileType', {
     desc = "Autostart treesitter",

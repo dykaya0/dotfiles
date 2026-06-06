@@ -1,6 +1,6 @@
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar -c " .. waybarConfig)
-    hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("awww-daemon")
     hl.exec_cmd("hypridle")
     hl.exec_cmd(autostartOther)
     hl.exec_cmd(dependencyCheck)

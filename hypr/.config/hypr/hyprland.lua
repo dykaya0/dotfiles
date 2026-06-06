@@ -3,9 +3,6 @@ local xdg_bin_home = os.getenv("XDG_BIN_HOME") or os.getenv("HOME") .. "/.local/
 
 mainMod = "SUPER"
 
-mainMonitor = "DP-2"
-secondMonitor = "HDMI-A-1"
-
 browser = "librewolf --new-window"
 terminal = "ghostty --working-directory=HOME"
 menu = "rofi -show drun"

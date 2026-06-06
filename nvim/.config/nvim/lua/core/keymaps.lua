@@ -24,8 +24,19 @@ local opts = { noremap = true, silent = true }
 -- "an" and "in" (Visual and Operator-pending mode) are mapped to outer and inner incremental selections, respectively, using vim.lsp.buf.selection_range()
 
 vim.keymap.set("n", "<leader><Tab>", function()
-    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+    local is_enabled = vim.diagnostic.is_enabled()
+    vim.diagnostic.enable(not is_enabled)
+    print('Diagnostics Enabled: ' .. tostring(not is_enabled))
 end, { desc = 'Toggle diagnostics' })
+
+vim.keymap.set("n", "D", function()
+    local funcOpts = {
+        focusable = false,
+        scope = 'cursor',
+        close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter' },
+    }
+    vim.diagnostic.open_float(nil, funcOpts)
+end, { desc = 'Toggle floating diagnostics on cursor' })
 
 -- Select all file
 vim.keymap.set("n", "vga", "ggVG", opts)
@@ -61,9 +72,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Splits
-vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", opts) -- vertical split
-vim.keymap.set("n", "<leader>ss", ":close<CR>", opts)  -- close current split window
-vim.keymap.set("n", "<leader>sr", ":wincmd R<CR>", opts)
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)   -- vertical split
+vim.keymap.set("n", "<leader>ss", ":close<CR>", opts)    -- close current split window
+vim.keymap.set("n", "<leader>sr", ":wincmd R<CR>", opts) -- Shift vertical splits to left
 
 -- Buffers
 vim.keymap.set({ "n", "v" }, "<leader>b", ":bdelete<CR>", opts)
