@@ -1,46 +1,9 @@
 {
-"custom/xkblayout": {
-    "exec-if": "~/.config/waybar/scripts/keyboardlayout.sh isReady",
-    "exec": "~/.config/waybar/scripts/keyboardlayout.sh",
-    "interval": 1,
-    "format": "󰌌",
-    "return-type": "json",
-    "tooltip": true,
-    "tooltip-format": "{text}"
-},
-
-"custom/obs-audio": {
-  "exec-if": "~/.config/scripts/obs-widget.sh isReady",
-  "exec": "~/.config/scripts/obs-widget.sh",
-  "interval": 1,
-  "format": "{} OBS",
-  "return-type": "json",
-  "on-click": "~/.config/scripts/obs-widget.sh toggleStatus"
-},
-
 "custom/power": {
 	"format": "⏻",
 	"tooltip": true,
 	"tooltip-format":"Logout Menu",
     "on-click": "wlogout"
-},
-
- "custom/timer": {
-     "exec-if": "command -v tomato",
-     "exec": "tomato -t",
-     "interval": 1, 
-     "format": " {}",
-     "tooltip": false
- },
-
-"custom/packages": {
-  "exec-if": "~/.config/waybar/scripts/package-updates.sh isReady",
-  "exec": "~/.config/waybar/scripts/package-updates.sh status",
-  "interval": 60,
-  "return-type": "json",
-  "tooltip": true,
-  "on-click": "~/.config/waybar/scripts/package-updates.sh update",
-  "on-click-right": "~/.config/waybar/scripts/package-updates.sh check"
 },
 
 "custom/separator#line": {

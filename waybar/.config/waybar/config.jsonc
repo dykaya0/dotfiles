@@ -1,7 +1,6 @@
 {
     "include": [
         "$HOME/.config/waybar/Modules",
-        "$HOME/.config/waybar/ModulesWorkspaces",
         "$HOME/.config/waybar/ModulesCustom"
     ],
     "layer": "bottom",
@@ -22,24 +21,21 @@
         "clock",
         "custom/separator#line",
         "memory",
-        "cpu",
-        "custom/separator#line",  
-        "custom/obs-audio",
-        "custom/timer"
+        "cpu"
     ],
 
     "modules-center": [
-        "hyprland/workspaces#kanji",
+        "hyprland/workspaces",
         "custom/separator#line",
-        "idle_inhibitor",
-        "custom/packages"
+        "idle_inhibitor"
     ],
 
     "modules-right": [
         "tray",
         "custom/separator#line",  
+        "backlight",  
+        "battery",  
         "network",
-        "custom/xkblayout",
         "pulseaudio",
         "custom/power"
     ]
